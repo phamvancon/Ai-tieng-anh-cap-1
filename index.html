@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Daily - Luyện Đọc & Đàm Thoại AI Học Sinh Các Cấp</title>
+    <title>Smart Start English Kids</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,7 +32,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f0f7ff 0%, #f8fafc 50%, #e0effe 100%);
+            background: linear-gradient(135deg, #dbeafe 0%, #fdf2f8 40%, #fef9c3 100%);
             user-select: none;
         }
         /* Custom scrollbar for chat and lists */
@@ -61,6 +61,296 @@
         .animate-slide-up {
             animation: slide-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+        
+        
+/* HIDE DUPLICATE OUTSIDE TOPIC CONTENT */
+.curriculum-preview,
+.topic-preview,
+.unit-preview,
+.lesson-sidebar,
+.external-topic-list,
+.theme-overview-panel{
+    display:none !important;
+}
+
+.search-section,
+.dictionary-section,
+.dictionary-box,
+.lookup-panel,
+.search-container{
+    display:none !important;
+}
+
+/* CLEAN SMART UI */
+.lesson-content-area{
+    width:100% !important;
+    max-width:100% !important;
+}
+
+/* FINAL CLEAN ONLINE LAYOUT */
+.page-wrapper{
+    max-width:1200px;
+    margin:0 auto;
+    padding:12px;
+}
+
+.section-spacing{
+    margin-top:18px;
+}
+
+.compact-section{
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    border-radius:22px;
+    padding:16px;
+    box-shadow:0 8px 20px rgba(15,23,42,.05);
+}
+
+.compact-title{
+    font-size:15px;
+    font-weight:900;
+    color:#0f172a;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.smart-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;
+}
+
+.lesson-card,
+.theme-card,
+.unit-card{
+    padding:14px !important;
+    border-radius:20px !important;
+}
+
+button{
+    min-height:42px;
+}
+
+.focus-word{
+    margin-top:8px !important;
+}
+
+@media(max-width:768px){
+    .page-wrapper{
+        padding:10px;
+    }
+
+    .compact-section{
+        padding:14px;
+        border-radius:18px;
+    }
+}
+
+/* REFINED HOME LAYOUT */
+.home-top-layout{
+    display:grid;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap:16px;
+    align-items:start;
+    margin-top:14px;
+}
+
+@media(max-width:900px){
+    .home-top-layout{
+        grid-template-columns:1fr;
+    }
+}
+
+.focus-vocab-card{
+    background:linear-gradient(180deg,#ffffff,#f8fbff);
+    border:1px solid #dbeafe;
+    border-radius:24px;
+    padding:18px;
+    box-shadow:0 10px 24px rgba(59,130,246,.08);
+}
+
+.focus-word{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    background:white;
+    border:1px solid #e2e8f0;
+    padding:12px 14px;
+    border-radius:18px;
+    margin-top:10px;
+    transition:.2s ease;
+}
+
+.focus-word:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(15,23,42,.06);
+}
+
+.focus-word button{
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+    color:white;
+    border:none;
+    padding:8px 12px;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* MODERN CLEAN LAYOUT */
+body{
+    overflow-x:hidden;
+}
+
+.main-container,
+.container,
+.app-container{
+    max-width:1200px !important;
+    margin:0 auto !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+}
+
+.card,
+.lesson-card,
+.theme-card,
+.unit-card{
+    border-radius:24px !important;
+    box-shadow:0 8px 24px rgba(15,23,42,.06) !important;
+    border:1px solid rgba(226,232,240,.9) !important;
+    transition:.25s ease;
+}
+
+.card:hover,
+.lesson-card:hover,
+.theme-card:hover,
+.unit-card:hover{
+    transform:translateY(-2px);
+}
+
+button{
+    border-radius:18px !important;
+}
+
+.grid{
+    gap:16px !important;
+}
+
+img{
+    border-radius:18px !important;
+}
+
+h1,h2,h3,h4{
+    letter-spacing:-0.02em;
+}
+
+@media (max-width:768px){
+    .grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .smart-dictionary-mini{
+        width:56px !important;
+        height:56px !important;
+        font-size:24px !important;
+    }
+
+    .dictionary-panel{
+        width:calc(100vw - 24px) !important;
+        right:12px !important;
+        bottom:82px !important;
+    }
+}
+
+/* CLEAN HEADER */
+.top-header,
+.header,
+.navbar{
+    backdrop-filter:blur(14px);
+    background:rgba(255,255,255,.82) !important;
+    border-bottom:1px solid rgba(226,232,240,.7);
+}
+
+/* SOFT CHILD UI */
+.kid-card{
+    background:linear-gradient(180deg,#fff,#fffdf5);
+}
+
+/* CLEAN SCROLLBAR */
+::-webkit-scrollbar{
+    width:8px;
+}
+::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:999px;
+}
+
+/* SMART MINI DICTIONARY */
+.smart-dictionary-mini{
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 62px;
+    height: 62px;
+    border-radius: 999px;
+    background: linear-gradient(135deg,#3b82f6,#8b5cf6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:28px;
+    box-shadow:0 12px 30px rgba(59,130,246,.35);
+    z-index:9999;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.smart-dictionary-mini:hover{
+    transform:scale(1.08);
+}
+
+.dictionary-panel{
+    position: fixed;
+    bottom: 90px;
+    right: 16px;
+    width: 290px;
+    max-width: calc(100vw - 32px);
+    background:white;
+    border-radius:24px;
+    padding:16px;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    z-index:9999;
+    display:none;
+}
+
+.dictionary-panel.active{
+    display:block;
+}
+
+/* SMART KIDS UI */
+        .kid-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefce8 100%);
+            border: 2px solid #fde68a;
+            box-shadow: 0 10px 30px rgba(251,191,36,0.12);
+        }
+        .kid-title {
+            background: linear-gradient(90deg,#2563eb,#ec4899,#f59e0b);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+        .floating-star{
+            animation: float-star 3s ease-in-out infinite;
+        }
+        @keyframes float-star{
+            0%,100%{transform:translateY(0px);}
+            50%{transform:translateY(-6px);}
+        }
+        .rainbow-btn{
+            background: linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+            color:white;
+        }
+
         /* Floating Bubbles Game Animation */
         @keyframes bubble-float {
             0 { transform: translateY(100%) scale(0.9); opacity: 0; }
@@ -72,8 +362,125 @@
             animation: bubble-float 6s linear infinite;
         }
     </style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#3b82f6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
 </head>
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-center items-center p-0 md:p-4">
+
+<div class="compact-section section-spacing">
+<!-- REFINED HOME TOP -->
+<div class="max-w-6xl mx-auto px-4 home-top-layout">
+
+    <!-- LEFT : TOP RANK -->
+    <div>
+        <!-- HORIZONTAL MINI LEADERBOARD -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 px-4 py-3 flex items-center justify-between gap-3 overflow-x-auto">
+
+            <div class="flex items-center gap-2 min-w-fit">
+                <span class="text-lg">👑</span>
+                <div>
+                    <div class="text-[11px] font-black text-slate-800">BẢO NGỌC</div>
+                    <div class="text-[10px] text-red-500 font-bold">1250 XP</div>
+                </div>
+            </div>
+
+            <div class="h-8 w-px bg-slate-200"></div>
+
+            <div class="flex items-center gap-2 min-w-fit">
+                <span class="text-base">🥈</span>
+                <div>
+                    <div class="text-[11px] font-black text-slate-800">MINH AN</div>
+                    <div class="text-[10px] text-blue-500 font-bold">920 XP</div>
+                </div>
+            </div>
+
+            <div class="h-8 w-px bg-slate-200"></div>
+
+            <div class="flex items-center gap-2 min-w-fit">
+                <span class="text-base">🥉</span>
+                <div>
+                    <div class="text-[11px] font-black text-slate-800">GIA HUY</div>
+                    <div class="text-[10px] text-purple-500 font-bold">870 XP</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+            <button onclick="speakTextUS('Monkey')">▶ Nghe</button>
+        </div>
+
+        <div class="focus-word">
+            <div>
+                <div class="font-black text-slate-800">Science</div>
+                <div class="text-[11px] text-slate-500">/ˈsaɪəns/ • Khoa học</div>
+            </div>
+            <button onclick="speakTextUS('Science')">▶ Nghe</button>
+        </div>
+
+        <div class="focus-word">
+            <div>
+                <div class="font-black text-slate-800">Penguin</div>
+                <div class="text-[11px] text-slate-500">/ˈpeŋɡwɪn/ • Chim cánh cụt</div>
+            </div>
+            <button onclick="speakTextUS('Penguin')">▶ Nghe</button>
+        </div>
+
+    </div>
+
+</div>
+
+        </div>
+
+        <div class="h-8 w-px bg-slate-200"></div>
+
+        <div class="flex items-center gap-2 min-w-fit">
+            <span class="text-base">🥈</span>
+            <div>
+                <div class="text-[11px] font-black text-slate-800">MINH AN</div>
+                <div class="text-[10px] text-blue-500 font-bold">920 XP</div>
+            </div>
+        </div>
+
+        <div class="h-8 w-px bg-slate-200"></div>
+
+        <div class="flex items-center gap-2 min-w-fit">
+            <span class="text-base">🥉</span>
+            <div>
+                <div class="text-[11px] font-black text-slate-800">GIA HUY</div>
+                <div class="text-[10px] text-purple-500 font-bold">870 XP</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+            <div class="bg-gradient-to-b from-yellow-200 to-orange-200 rounded-xl p-2 border border-yellow-300 scale-105 shadow">
+                <div class="text-2xl">👑</div>
+                <div class="text-[11px] font-black text-slate-800">BẢO NGỌC</div>
+                <div class="text-[10px] text-red-600 font-black">1250 XP</div>
+            </div>
+
+            <div class="bg-slate-50 rounded-xl p-2 border border-slate-100">
+                <div class="text-xl">🥉</div>
+                <div class="text-[11px] font-black text-slate-700">GIA HUY</div>
+                <div class="text-[10px] text-purple-600 font-bold">870 XP</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+        <p class="text-center text-[11px] text-slate-600 mt-4">
+            🌟 Học tập mỗi ngày để lên bảng xếp hạng Smart Start!
+        </p>
+    </div>
+</div>
 
     <!-- APP WRAPPER (Tự động co giãn thông minh: Mobile dọc gọn gàng, Desktop dạng Dashboard góc rộng) -->
     <div class="w-full max-w-md md:max-w-5xl mx-auto bg-white min-h-screen md:min-h-[90vh] flex flex-col shadow-2xl relative pb-20 md:rounded-3xl md:border md:border-slate-100 overflow-hidden">
@@ -86,7 +493,7 @@
                 <div class="w-16 h-16 rounded-3xl bg-brand-600 text-white flex items-center justify-center mx-auto shadow-lg shadow-brand-500/30 mb-4 animate-bounce">
                     <i class="fa-solid fa-book-open-reader text-3xl"></i>
                 </div>
-                <h1 class="text-2xl font-black text-slate-900 tracking-tight">English Daily ECO</h1>
+                <h1 class="text-3xl font-black tracking-tight kid-title">🌈 Smart Start English Kids</h1>
                 <p class="text-xs text-slate-500 mt-1">Luyện đọc và Đàm thoại Tiếng Anh cùng AI thông minh</p>
             </div>
 
@@ -312,6 +719,7 @@
                             </div>
                         </div>
 
+                        
                         <!-- TỦ SÁCH GIÁO KHOA ĐIỆN TỬ SMART START -->
                         <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
                             <h4 class="font-bold text-slate-900 text-xs mb-2.5 flex items-center justify-between">
@@ -342,15 +750,17 @@
                             </div>
                         </div>
 
-                        <!-- Vocabulary List Box -->
-                        <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
-                            <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center">
-                                <i class="fa-solid fa-star text-amber-400 mr-2"></i>Từ Vựng Trọng Tâm (Luyện Phát Âm Từ)
-                            </h4>
-                            <div id="vocabulary-container" class="space-y-2.5 max-h-64 overflow-y-auto custom-scrollbar pr-1">
-                                <!-- Dynamic vocabulary loaded here -->
-                            </div>
-                        </div>
+                        
+                        
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
                     </div>
                 </section>
 
@@ -1050,79 +1460,608 @@
         };
 
         const smartStartDatabase = {
-            ss_1: {
-                theme1: {
-                    title: "Smart Start 1 - Theme 1: Hello!",
+            
+ss_1: {
+                greetings: {
+                    title: "Unit 1: Greetings",
                     image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80",
-                    content: "Hello! My name is Bill. What is your name? Nice to meet you. Good-bye!",
+                    content: "Hello! Good morning. Nice to meet you. Goodbye my friend.",
                     vocab: [
-                        { word: "Hello", type: "excl", ipa: "/həˈləʊ/", vi: "Xin chào", desc: "Used as a greeting." },
-                        { word: "Name", type: "noun", ipa: "/neɪm/", vi: "Tên", desc: "A word by which a person is known." },
-                        { word: "Meet", type: "verb", ipa: "/miːt/", vi: "Gặp gỡ", desc: "To come into contact with someone." },
-                        { word: "Good-bye", type: "excl", ipa: "/ˌɡʊdˈbaɪ/", vi: "Tạm biệt", desc: "Used to express good wishes when parting." }
+                        { word: "Hello", type: "greeting", ipa: "/həˈləʊ/", vi: "Xin chào", desc: "Used when meeting someone." },
+                        { word: "Goodbye", type: "greeting", ipa: "/ˌɡʊdˈbaɪ/", vi: "Tạm biệt", desc: "Used when leaving." },
+                        { word: "Meet", type: "verb", ipa: "/miːt/", vi: "Gặp gỡ", desc: "To see and speak to someone." }
                     ]
                 },
-                theme2: {
-                    title: "Smart Start 1 - Theme 2: School",
-                    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&auto=format&fit=crop&q=80",
-                    content: "This is my school. I have a book, a pencil, and a ruler in my bag. I like my classroom.",
+                classroom: {
+                    title: "Unit 2: Classroom Commands",
+                    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80",
+                    content: "Stand up please. Sit down. Listen to your teacher carefully.",
                     vocab: [
-                        { word: "School", type: "noun", ipa: "/skuːl/", vi: "Trường học", desc: "A place where people go to learn." },
-                        { word: "Pencil", type: "noun", ipa: "/ˈpensl/", vi: "Bút chì", desc: "An instrument for writing or drawing." },
-                        { word: "Book", type: "noun", ipa: "/bʊk/", vi: "Sách", desc: "A written or printed work." },
-                        { word: "Ruler", type: "noun", ipa: "/ˈruːlər/", vi: "Thước kẻ", desc: "A straight strip of plastic or wood." }
+                        { word: "Stand up", type: "command", ipa: "/stænd ʌp/", vi: "Đứng lên", desc: "Rise to your feet." },
+                        { word: "Sit down", type: "command", ipa: "/sɪt daʊn/", vi: "Ngồi xuống", desc: "Take a seat." },
+                        { word: "Listen", type: "verb", ipa: "/ˈlɪsn/", vi: "Lắng nghe", desc: "Pay attention to sounds." }
+                    ]
+                },
+                family: {
+                    title: "Unit 3: Family",
+                    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&auto=format&fit=crop&q=80",
+                    content: " This is my father. I love my brother and sister.",
+                    vocab: [
+                        { word: "Mother", type: "noun", ipa: "/ˈmʌðər/", vi: "Mẹ", desc: "A female parent." },
+                        { word: "Father", type: "noun", ipa: "/ˈfɑːðər/", vi: "Ba", desc: "A male parent." },
+                        { word: "Brother", type: "noun", ipa: "/ˈbrʌðər/", vi: "Anh/em trai", desc: "A male sibling." },
+                        { word: "Sister", type: "noun", ipa: "/ˈsɪstər/", vi: "Chị/em gái", desc: "A female sibling." }
+                    ]
+                },
+                school: {
+                    title: "Unit 4: School Things",
+                    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80",
+                    content: " This is my book and my school bag.",
+                    vocab: [
+                        { word: "Pencil", type: "noun", ipa: "/ˈpensl/", vi: "Bút chì", desc: "Used for writing." },
+                        { word: "Book", type: "noun", ipa: "/bʊk/", vi: "Quyển sách", desc: "Something to read." },
+                        { word: "Bag", type: "noun", ipa: "/bæɡ/", vi: "Cái cặp", desc: "Used to carry things." }
+                    ]
+                },
+                colors: {
+                    title: "Unit 5: Colors",
+                    image: "https://images.unsplash.com/photo-1494253109108-2e30c049369b?w=600&auto=format&fit=crop&q=80",
+                    content: "The ball is red. The kite is yellow. The bird is blue.",
+                    vocab: [
+                        { word: "Red", type: "color", ipa: "/red/", vi: "Màu đỏ", desc: "The color red." },
+                        { word: "Yellow", type: "color", ipa: "/ˈjeləʊ/", vi: "Màu vàng", desc: "The color yellow." },
+                        { word: "Blue", type: "color", ipa: "/bluː/", vi: "Màu xanh dương", desc: "The color blue." }
+                    ]
+                },
+                body: {
+                    title: "Unit 6: My Body",
+                    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80",
+                    content: "Touch your head. Move your arm and leg.",
+                    vocab: [
+                        { word: "Head", type: "noun", ipa: "/hed/", vi: "Đầu", desc: "Top part of the body." },
+                        { word: "Arm", type: "noun", ipa: "/ɑːm/", vi: "Cánh tay", desc: "Body part from shoulder to hand." },
+                        { word: "Leg", type: "noun", ipa: "/leɡ/", vi: "Chân", desc: "Body part used for walking." }
+                    ]
+                },
+                animals: {
+                    title: "Unit 7: Animals",
+                    image: "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&auto=format&fit=crop&q=80",
+                    content: "I see a cat, a dog, a monkey and a bear at the zoo.",
+                    vocab: [
+                        { word: "Cat", type: "animal", ipa: "/kæt/", vi: "Con mèo", desc: "A small pet animal." },
+                        { word: "Dog", type: "animal", ipa: "/dɒɡ/", vi: "Con chó", desc: "A loyal pet animal." },
+                        { word: "Monkey", type: "animal", ipa: "/ˈmʌŋki/", vi: "Con khỉ", desc: "An animal that climbs trees." },
+                        { word: "Bear", type: "animal", ipa: "/beə(r)/", vi: "Con gấu", desc: "A large wild animal." }
+                    ]
+                },
+                activities: {
+                    title: "Unit 8: Activities",
+                    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&auto=format&fit=crop&q=80",
+                    content: "I can swim. I can sing and run with my friends.",
+                    vocab: [
+                        { word: "Swim", type: "verb", ipa: "/swɪm/", vi: "Bơi", desc: "Move through water." },
+                        { word: "Sing", type: "verb", ipa: "/sɪŋ/", vi: "Hát", desc: "Make musical sounds." },
+                        { word: "Run", type: "verb", ipa: "/rʌn/", vi: "Chạy", desc: "Move quickly on foot." }
+                    ]
+                },
+                numbers: {
+                    title: "Unit 9: Numbers",
+                    image: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=600&auto=format&fit=crop&q=80",
+                    content: "One, two, three, four, five, six. How old are you?",
+                    vocab: [
+                        { word: "One", type: "number", ipa: "/wʌn/", vi: "Số một", desc: "Number 1." },
+                        { word: "Two", type: "number", ipa: "/tuː/", vi: "Số hai", desc: "Number 2." },
+                        { word: "Six", type: "number", ipa: "/sɪks/", vi: "Số sáu", desc: "Number 6." }
+                    ]
+                },
+                food: {
+                    title: "Unit 10: Food",
+                    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80",
+                    content: "I want a banana and a sandwich. I like cookies.",
+                    vocab: [
+                        { word: "Banana", type: "food", ipa: "/bəˈnɑːnə/", vi: "Chuối", desc: "A yellow fruit." },
+                        { word: "Cookie", type: "food", ipa: "/ˈkʊki/", vi: "Bánh quy", desc: "A sweet baked snack." },
+                        { word: "Sandwich", type: "food", ipa: "/ˈsænwɪdʒ/", vi: "Bánh sandwich", desc: "Bread with filling." }
+                    ]
+                },
+                toys: {
+                    title: "Unit 11: Toys",
+                    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&auto=format&fit=crop&q=80",
+                    content: "I have seven cars and one teddy bear. How many balls do you have?",
+                    vocab: [
+                        { word: "Car", type: "toy", ipa: "/kɑː(r)/", vi: "Xe đồ chơi", desc: "A toy car." },
+                        { word: "Ball", type: "toy", ipa: "/bɔːl/", vi: "Quả bóng", desc: "A round toy." },
+                        { word: "Teddy bear", type: "toy", ipa: "/ˈtedi beə(r)/", vi: "Gấu bông", desc: "A soft toy bear." }
+                    ]
+                },
+                house: {
+                    title: "Unit 12: My House",
+                    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&auto=format&fit=crop&q=80",
+                    content: "This is my living room. The kitchen is big. My bedroom is small.",
+                    vocab: [
+                        { word: "Living room", type: "room", ipa: "/ˈlɪvɪŋ ruːm/", vi: "Phòng khách", desc: "Room for relaxing." },
+                        { word: "Kitchen", type: "room", ipa: "/ˈkɪtʃɪn/", vi: "Nhà bếp", desc: "Room for cooking." },
+                        { word: "Bedroom", type: "room", ipa: "/ˈbedruːm/", vi: "Phòng ngủ", desc: "Room for sleeping." }
+                    ]
+                },
+                phonics: {
+                    title: "Phonics Aa → Mm",
+                    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&auto=format&fit=crop&q=80",
+                    content: "Aa ant. Bb boy. Cc cap. Dd door. Practice phonics every day.",
+                    vocab: [
+                        { word: "Ant", type: "phonics", ipa: "/ænt/", vi: "Con kiến", desc: "Starts with letter A." },
+                        { word: "Boy", type: "phonics", ipa: "/bɔɪ/", vi: "Cậu bé", desc: "Starts with letter B." },
+                        { word: "Cap", type: "phonics", ipa: "/kæp/", vi: "Cái nón", desc: "Starts with letter C." },
+                        { word: "Door", type: "phonics", ipa: "/dɔː(r)/", vi: "Cánh cửa", desc: "Starts with letter D." }
                     ]
                 }
             },
+
+            
             ss_2: {
-                theme1: {
-                    title: "Smart Start 2 - Theme 1: Feelings",
-                    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop&q=80",
-                    content: "Today, I feel happy. My friend is sad. Are you hot or cold? We are fine, thank you.",
+                unit1: {
+                    title: "Unit 1: Hello Again",
+                    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80",
+                    content: "Hello! How are you? I am happy to see my friends again.",
                     vocab: [
-                        { word: "Happy", type: "adj", ipa: "/ˈhæpi/", vi: "Vui vẻ, hạnh phúc", desc: "Feeling or showing pleasure." },
-                        { word: "Sad", type: "adj", ipa: "/sæd/", vi: "Buồn bã", desc: "Feeling or showing sorrow." },
-                        { word: "Fine", type: "adj", ipa: "/faɪn/", vi: "Khỏe, tốt", desc: "In a satisfactory state." }
+                        { word: "Hello", type: "greeting", ipa: "/həˈləʊ/", vi: "Xin chào", desc: "Greeting when meeting." },
+                        { word: "Goodbye", type: "greeting", ipa: "/ˌɡʊdˈbaɪ/", vi: "Tạm biệt", desc: "Greeting when leaving." },
+                        { word: "Happy", type: "feeling", ipa: "/ˈhæpi/", vi: "Vui vẻ", desc: "Feeling good." },
+                        { word: "Friend", type: "people", ipa: "/frend/", vi: "Bạn bè", desc: "A person you like." }
+                    ]
+                },
+
+                unit2: {
+                    title: "Unit 2: My Classroom",
+                    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80",
+                    content: "Open your book and listen to the teacher carefully.",
+                    vocab: [
+                        { word: "Book", type: "school", ipa: "/bʊk/", vi: "Quyển sách", desc: "Something to read." },
+                        { word: "Notebook", type: "school", ipa: "/ˈnəʊtbʊk/", vi: "Tập vở", desc: "Book for writing." },
+                        { word: "Pencil case", type: "school", ipa: "/ˈpensl keɪs/", vi: "Hộp bút", desc: "Container for pencils." },
+                        { word: "Teacher", type: "people", ipa: "/ˈtiːtʃər/", vi: "Giáo viên", desc: "Person who teaches." }
+                    ]
+                },
+
+                unit3: {
+                    title: "Unit 3: My Family",
+                    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&auto=format&fit=crop&q=80",
+                    content: "This is my grandfather and grandmother. I love my family.",
+                    vocab: [
+                        { word: "Grandfather", type: "family", ipa: "/ˈɡrænˌfɑːðər/", vi: "Ông", desc: "Father's or mother's father." },
+                        { word: "Grandmother", type: "family", ipa: "/ˈɡrænˌmʌðər/", vi: "Bà", desc: "Father's or mother's mother." },
+                        { word: "Uncle", type: "family", ipa: "/ˈʌŋkl/", vi: "Chú/Cậu", desc: "Male relative." },
+                        { word: "Aunt", type: "family", ipa: "/ɑːnt/", vi: "Cô/Dì", desc: "Female relative." }
+                    ]
+                },
+
+                unit4: {
+                    title: "Unit 4: Food and Drinks",
+                    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80",
+                    content: "I like apples and orange juice. My favorite food is pizza.",
+                    vocab: [
+                        { word: "Apple", type: "food", ipa: "/ˈæpl/", vi: "Táo", desc: "A sweet fruit." },
+                        { word: "Banana", type: "food", ipa: "/bəˈnɑːnə/", vi: "Chuối", desc: "Yellow fruit." },
+                        { word: "Juice", type: "drink", ipa: "/dʒuːs/", vi: "Nước ép", desc: "Fruit drink." },
+                        { word: "Pizza", type: "food", ipa: "/ˈpiːtsə/", vi: "Pizza", desc: "Italian food." }
+                    ]
+                },
+
+                unit5: {
+                    title: "Unit 5: Animals",
+                    image: "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&auto=format&fit=crop&q=80",
+                    content: "The tiger is big. The monkey can climb trees.",
+                    vocab: [
+                        { word: "Tiger", type: "animal", ipa: "/ˈtaɪɡər/", vi: "Con hổ", desc: "A wild cat." },
+                        { word: "Monkey", type: "animal", ipa: "/ˈmʌŋki/", vi: "Con khỉ", desc: "Animal that climbs trees." },
+                        { word: "Elephant", type: "animal", ipa: "/ˈelɪfənt/", vi: "Con voi", desc: "Very big animal." },
+                        { word: "Bird", type: "animal", ipa: "/bɜːd/", vi: "Con chim", desc: "Animal that flies." }
+                    ]
+                },
+
+                unit6: {
+                    title: "Unit 6: My House",
+                    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&auto=format&fit=crop&q=80",
+                    content: "The kitchen is next to the living room. My bedroom is small.",
+                    vocab: [
+                        { word: "Living room", type: "house", ipa: "/ˈlɪvɪŋ ruːm/", vi: "Phòng khách", desc: "Family room." },
+                        { word: "Bedroom", type: "house", ipa: "/ˈbedruːm/", vi: "Phòng ngủ", desc: "Sleeping room." },
+                        { word: "Kitchen", type: "house", ipa: "/ˈkɪtʃɪn/", vi: "Nhà bếp", desc: "Cooking room." },
+                        { word: "Bathroom", type: "house", ipa: "/ˈbɑːθruːm/", vi: "Nhà tắm", desc: "Bath room." }
+                    ]
+                },
+
+                unit7: {
+                    title: "Unit 7: Weather",
+                    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&auto=format&fit=crop&q=80",
+                    content: "Today is sunny and hot, but tomorrow will be rainy.",
+                    vocab: [
+                        { word: "Sunny", type: "weather", ipa: "/ˈsʌni/", vi: "Nắng", desc: "Bright weather." },
+                        { word: "Rainy", type: "weather", ipa: "/ˈreɪni/", vi: "Mưa", desc: "Wet weather." },
+                        { word: "Windy", type: "weather", ipa: "/ˈwɪndi/", vi: "Có gió", desc: "Wind blowing." },
+                        { word: "Cloudy", type: "weather", ipa: "/ˈklaʊdi/", vi: "Nhiều mây", desc: "Cloud-filled sky." }
+                    ]
+                },
+
+                unit8: {
+                    title: "Unit 8: Activities",
+                    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&auto=format&fit=crop&q=80",
+                    content: "I can swim and ride a bike. My brother can play soccer.",
+                    vocab: [
+                        { word: "Swim", type: "activity", ipa: "/swɪm/", vi: "Bơi", desc: "Move in water." },
+                        { word: "Ride a bike", type: "activity", ipa: "/raɪd ə baɪk/", vi: "Đi xe đạp", desc: "Use a bicycle." },
+                        { word: "Play soccer", type: "activity", ipa: "/pleɪ ˈsɒkər/", vi: "Chơi bóng đá", desc: "Football activity." },
+                        { word: "Dance", type: "activity", ipa: "/dɑːns/", vi: "Nhảy múa", desc: "Move with music." }
+                    ]
+                },
+
+                phonics: {
+                    title: "Phonics & Pronunciation",
+                    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&auto=format&fit=crop&q=80",
+                    content: "Practice phonics and pronunciation every day for better English speaking.",
+                    vocab: [
+                        { word: "Cat", type: "phonics", ipa: "/kæt/", vi: "Con mèo", desc: "Starts with C sound." },
+                        { word: "Dog", type: "phonics", ipa: "/dɒɡ/", vi: "Con chó", desc: "Starts with D sound." },
+                        { word: "Fish", type: "phonics", ipa: "/fɪʃ/", vi: "Con cá", desc: "Starts with F sound." },
+                        { word: "Goat", type: "phonics", ipa: "/ɡəʊt/", vi: "Con dê", desc: "Starts with G sound." }
                     ]
                 }
             },
+
             ss_3: {
-                theme1: {
-                    title: "Smart Start 3 - Theme 1: My Friends",
-                    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80",
-                    content: "Hello! I am from Vietnam. My friend is Alfie. He is from Alpha. We like to paint and dance together.",
+                getting_started: {
+                    title: "Getting Started",
+                    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80",
+                    content: "Stand up. Sit down. Open your book. Hello! What is your name?",
                     vocab: [
-                        { word: "Friend", type: "noun", ipa: "/frend/", vi: "Bạn bè", desc: "A person who you like and trust." },
-                        { word: "Dance", type: "verb", ipa: "/dɑːns/", vi: "Nhảy, múa", desc: "To move the body and feet to music." },
-                        { word: "Paint", type: "verb", ipa: "/peɪnt/", vi: "Vẽ tranh", desc: "To cover a surface with paint." }
+                        { word: "Stand up", type: "command", ipa: "/stænd ʌp/", vi: "Đứng lên", desc: "Teacher classroom command." },
+                        { word: "Sit down", type: "command", ipa: "/sɪt daʊn/", vi: "Ngồi xuống", desc: "Teacher classroom command." },
+                        { word: "Open your book", type: "command", ipa: "/ˈəʊpən jɔː bʊk/", vi: "Mở sách ra", desc: "Open the book." },
+                        { word: "Hello", type: "greeting", ipa: "/həˈləʊ/", vi: "Xin chào", desc: "Greeting word." },
+                        { word: "Goodbye", type: "greeting", ipa: "/ˌɡʊdˈbaɪ/", vi: "Tạm biệt", desc: "Leaving greeting." }
+                    ]
+                },
+
+                unit1: {
+                    title: "Unit 1: My Friends",
+                    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80",
+                    content: "How do you spell Alfie? A-L-F-I-E. I am from the USA. My friends like dancing.",
+                    vocab: [
+                        { word: "USA", type: "country", ipa: "/ˌjuː es ˈeɪ/", vi: "Mỹ", desc: "Country name." },
+                        { word: "Japan", type: "country", ipa: "/dʒəˈpæn/", vi: "Nhật Bản", desc: "Country name." },
+                        { word: "Dancing", type: "activity", ipa: "/ˈdɑːnsɪŋ/", vi: "Nhảy múa", desc: "Moving to music." },
+                        { word: "Reading", type: "activity", ipa: "/ˈriːdɪŋ/", vi: "Đọc sách", desc: "Reading books." },
+                        { word: "Painting", type: "activity", ipa: "/ˈpeɪntɪŋ/", vi: "Vẽ màu", desc: "Painting pictures." }
+                    ]
+                },
+
+                unit2: {
+                    title: "Unit 2: Family",
+                    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&auto=format&fit=crop&q=80",
+                    content: "My grandfather is kind. Clean your room and go to bed.",
+                    vocab: [
+                        { word: "Grandfather", type: "family", ipa: "/ˈɡrænˌfɑːðər/", vi: "Ông", desc: "Father's or mother's father." },
+                        { word: "Grandmother", type: "family", ipa: "/ˈɡrænˌmʌðər/", vi: "Bà", desc: "Father's or mother's mother." },
+                        { word: "Uncle", type: "family", ipa: "/ˈʌŋkl/", vi: "Chú/Cậu", desc: "Male relative." },
+                        { word: "Cousin", type: "family", ipa: "/ˈkʌzn/", vi: "Anh chị em họ", desc: "Relative child." }
+                    ]
+                },
+
+                unit3: {
+                    title: "Unit 3: School",
+                    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80",
+                    content: "I have a notebook and a ruler. Music education is on Monday.",
+                    vocab: [
+                        { word: "Notebook", type: "school", ipa: "/ˈnəʊtbʊk/", vi: "Tập vở", desc: "Book for writing." },
+                        { word: "Ruler", type: "school", ipa: "/ˈruːlər/", vi: "Thước kẻ", desc: "Tool for drawing lines." },
+                        { word: "Backpack", type: "school", ipa: "/ˈbækpæk/", vi: "Ba lô", desc: "Bag for school." },
+                        { word: "Monday", type: "day", ipa: "/ˈmʌndeɪ/", vi: "Thứ hai", desc: "First school day." }
+                    ]
+                },
+
+                unit4: {
+                    title: "Unit 4: Home",
+                    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&auto=format&fit=crop&q=80",
+                    content: "The sofa is in the living room. I am cleaning the kitchen.",
+                    vocab: [
+                        { word: "Living room", type: "home", ipa: "/ˈlɪvɪŋ ruːm/", vi: "Phòng khách", desc: "Family room." },
+                        { word: "Kitchen", type: "home", ipa: "/ˈkɪtʃɪn/", vi: "Nhà bếp", desc: "Cooking room." },
+                        { word: "Bathroom", type: "home", ipa: "/ˈbɑːθruːm/", vi: "Nhà tắm", desc: "Bath room." },
+                        { word: "Sofa", type: "home", ipa: "/ˈsəʊfə/", vi: "Ghế sofa", desc: "Soft seat." }
+                    ]
+                },
+
+                unit5: {
+                    title: "Unit 5: Sports & Hobbies",
+                    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&auto=format&fit=crop&q=80",
+                    content: "I like badminton and soccer. We go swimming on Sunday.",
+                    vocab: [
+                        { word: "Badminton", type: "sport", ipa: "/ˈbædmɪntən/", vi: "Cầu lông", desc: "Sport with racket." },
+                        { word: "Soccer", type: "sport", ipa: "/ˈsɒkər/", vi: "Bóng đá", desc: "Football game." },
+                        { word: "Basketball", type: "sport", ipa: "/ˈbɑːskɪtbɔːl/", vi: "Bóng rổ", desc: "Ball sport." },
+                        { word: "Swimming", type: "hobby", ipa: "/ˈswɪmɪŋ/", vi: "Bơi lội", desc: "Moving in water." }
+                    ]
+                },
+
+                unit6: {
+                    title: "Unit 6: Clothes",
+                    image: "https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&auto=format&fit=crop&q=80",
+                    content: "She is wearing a dress and sneakers. My jacket is blue.",
+                    vocab: [
+                        { word: "Dress", type: "clothes", ipa: "/dres/", vi: "Váy", desc: "Girl clothing." },
+                        { word: "Jacket", type: "clothes", ipa: "/ˈdʒækɪt/", vi: "Áo khoác", desc: "Warm clothing." },
+                        { word: "Jeans", type: "clothes", ipa: "/dʒiːnz/", vi: "Quần jeans", desc: "Blue pants." },
+                        { word: "Sneakers", type: "clothes", ipa: "/ˈsniːkəz/", vi: "Giày thể thao", desc: "Sport shoes." }
+                    ]
+                },
+
+                unit7: {
+                    title: "Unit 7: Toys",
+                    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&auto=format&fit=crop&q=80",
+                    content: "The robot is under the table. The doll is in the toy box.",
+                    vocab: [
+                        { word: "Robot", type: "toy", ipa: "/ˈrəʊbɒt/", vi: "Robot", desc: "Toy machine." },
+                        { word: "Doll", type: "toy", ipa: "/dɒl/", vi: "Búp bê", desc: "Toy person." },
+                        { word: "Toy box", type: "toy", ipa: "/tɔɪ bɒks/", vi: "Hộp đồ chơi", desc: "Box for toys." },
+                        { word: "Wardrobe", type: "home", ipa: "/ˈwɔːdrəʊb/", vi: "Tủ quần áo", desc: "Clothes cabinet." }
+                    ]
+                },
+
+                unit8: {
+                    title: "Unit 8: Food",
+                    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80",
+                    content: "I like pizza and noodles. I eat chicken with chopsticks.",
+                    vocab: [
+                        { word: "Pizza", type: "food", ipa: "/ˈpiːtsə/", vi: "Pizza", desc: "Italian food." },
+                        { word: "Ice cream", type: "food", ipa: "/ˌaɪs ˈkriːm/", vi: "Kem", desc: "Cold dessert." },
+                        { word: "Noodles", type: "food", ipa: "/ˈnuːdlz/", vi: "Mì", desc: "Long pasta food." },
+                        { word: "Chopsticks", type: "tool", ipa: "/ˈtʃɒpstɪks/", vi: "Đũa", desc: "Eating sticks." }
                     ]
                 }
             },
+
+            
             ss_4: {
-                theme1: {
-                    title: "Smart Start 4 - Theme 1: Animals",
-                    image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=600&auto=format&fit=crop&q=80",
-                    content: "Look at the animals in the zoo. The monkeys are swinging on the trees. The giraffes are eating leaves. The lions are roaring loudly under the warm sun.",
+                unit1_animals: {
+                    title: "Unit 1: Animals",
+                    image: "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&auto=format&fit=crop&q=80",
+                    content: "This is a monkey. Those are snakes. Penguins use their wings to swim.",
                     vocab: [
-                        { word: "Zoo", type: "noun", ipa: "/zuː/", vi: "Sở thú", desc: "A place where many wild animals are kept." },
-                        { word: "Giraffe", type: "noun", ipa: "/dʒəˈrɑːf/", vi: "Hươu cao cổ", desc: "A large African animal with a very long neck." },
-                        { word: "Swinging", type: "verb", ipa: "/ˈswɪŋɪŋ/", vi: "Đu đưa, đánh đu", desc: "Moving back and forth while suspended." },
-                        { word: "Roaring", type: "verb/noun", ipa: "/ˈrɔːrɪŋ/", vi: "Tiếng gầm", desc: "Making a loud, deep sound, especially a lion." }
+                        { word: "Snake", type: "animal", ipa: "/sneɪk/", vi: "Con rắn", desc: "A long reptile." },
+                        { word: "Monkey", type: "animal", ipa: "/ˈmʌŋki/", vi: "Con khỉ", desc: "Animal that climbs trees." },
+                        { word: "Horse", type: "animal", ipa: "/hɔːs/", vi: "Con ngựa", desc: "Large farm animal." },
+                        { word: "Camel", type: "animal", ipa: "/ˈkæml/", vi: "Con lạc đà", desc: "Animal with humps." },
+                        { word: "Hippo", type: "animal", ipa: "/ˈhɪpəʊ/", vi: "Con hà mã", desc: "Large river animal." },
+                        { word: "Rhino", type: "animal", ipa: "/ˈraɪnəʊ/", vi: "Con tê giác", desc: "Animal with a horn." },
+                        { word: "Panda", type: "animal", ipa: "/ˈpændə/", vi: "Gấu trúc", desc: "Black and white bear." },
+                        { word: "Dolphin", type: "animal", ipa: "/ˈdɒlfɪn/", vi: "Cá heo", desc: "Smart sea animal." },
+                        { word: "Penguin", type: "animal", ipa: "/ˈpeŋɡwɪn/", vi: "Chim cánh cụt", desc: "Bird that swims." },
+                        { word: "Elephant", type: "animal", ipa: "/ˈelɪfənt/", vi: "Con voi", desc: "Very big animal." }
+                    ]
+                },
+
+                unit1_science: {
+                    title: "Science CLIL: Animal Body Parts",
+                    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&auto=format&fit=crop&q=80",
+                    content: "Birds have feathers and wings. Sharks have fins. Tigers have fur and tails.",
+                    vocab: [
+                        { word: "Wing", type: "body part", ipa: "/wɪŋ/", vi: "Cánh", desc: "Used for flying." },
+                        { word: "Feather", type: "body part", ipa: "/ˈfeðər/", vi: "Lông vũ", desc: "Bird covering." },
+                        { word: "Tail", type: "body part", ipa: "/teɪl/", vi: "Đuôi", desc: "Animal tail." },
+                        { word: "Fin", type: "body part", ipa: "/fɪn/", vi: "Vây", desc: "Fish swimming part." },
+                        { word: "Fur", type: "body part", ipa: "/fɜːr/", vi: "Lông thú", desc: "Soft animal hair." },
+                        { word: "Claw", type: "body part", ipa: "/klɔː/", vi: "Móng vuốt", desc: "Sharp animal nail." }
+                    ]
+                },
+
+                unit2: {
+                    title: "Unit 2: What I Can Do",
+                    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&auto=format&fit=crop&q=80",
+                    content: "I can dance and sing. I can paint but I cannot draw.",
+                    vocab: [
+                        { word: "Dance", type: "activity", ipa: "/dɑːns/", vi: "Nhảy múa", desc: "Move with music." },
+                        { word: "Sing", type: "activity", ipa: "/sɪŋ/", vi: "Ca hát", desc: "Make music with voice." },
+                        { word: "Paint", type: "activity", ipa: "/peɪnt/", vi: "Vẽ màu", desc: "Create art with paint." },
+                        { word: "Act", type: "activity", ipa: "/ækt/", vi: "Diễn xuất", desc: "Perform in drama." }
+                    ]
+                },
+
+                unit3: {
+                    title: "Unit 3: Weather",
+                    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&auto=format&fit=crop&q=80",
+                    content: "Today is sunny but tomorrow is rainy and windy.",
+                    vocab: [
+                        { word: "Sunny", type: "weather", ipa: "/ˈsʌni/", vi: "Nắng", desc: "Bright weather." },
+                        { word: "Rainy", type: "weather", ipa: "/ˈreɪni/", vi: "Mưa", desc: "Wet weather." },
+                        { word: "Cloudy", type: "weather", ipa: "/ˈklaʊdi/", vi: "Nhiều mây", desc: "Cloud-filled sky." },
+                        { word: "Freezing", type: "weather", ipa: "/ˈfriːzɪŋ/", vi: "Rất lạnh", desc: "Very cold weather." }
+                    ]
+                },
+
+                unit4: {
+                    title: "Unit 4: Activities",
+                    image: "https://images.unsplash.com/photo-1518131678677-a1c2e315a42f?w=600&auto=format&fit=crop&q=80",
+                    content: "I like reading comic books and playing board games.",
+                    vocab: [
+                        { word: "Board game", type: "activity", ipa: "/bɔːd ɡeɪm/", vi: "Trò chơi bàn cờ", desc: "Game played on a board." },
+                        { word: "Puzzle", type: "activity", ipa: "/ˈpʌzl/", vi: "Trò ghép hình", desc: "Thinking game." },
+                        { word: "Comic book", type: "activity", ipa: "/ˈkɒmɪk bʊk/", vi: "Truyện tranh", desc: "Illustrated story book." },
+                        { word: "Skateboarding", type: "activity", ipa: "/ˈskeɪtbɔːdɪŋ/", vi: "Trượt ván", desc: "Sport with skateboard." }
+                    ]
+                },
+
+                unit5: {
+                    title: "Unit 5: Getting Around",
+                    image: "https://images.unsplash.com/photo-1529429617124-aee711a5ac1c?w=600&auto=format&fit=crop&q=80",
+                    content: "Turn left and go straight. The museum is next to the school.",
+                    vocab: [
+                        { word: "Turn left", type: "direction", ipa: "/tɜːn left/", vi: "Rẽ trái", desc: "Move left." },
+                        { word: "Turn right", type: "direction", ipa: "/tɜːn raɪt/", vi: "Rẽ phải", desc: "Move right." },
+                        { word: "Go straight", type: "direction", ipa: "/ɡəʊ streɪt/", vi: "Đi thẳng", desc: "Continue forward." },
+                        { word: "Opposite", type: "location", ipa: "/ˈɒpəzɪt/", vi: "Đối diện", desc: "Across from." }
+                    ]
+                },
+
+                unit6: {
+                    title: "Unit 6: Describing People",
+                    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=80",
+                    content: "She has curly hair. He is tall and has a beard.",
+                    vocab: [
+                        { word: "Tall", type: "appearance", ipa: "/tɔːl/", vi: "Cao", desc: "High height." },
+                        { word: "Short", type: "appearance", ipa: "/ʃɔːt/", vi: "Thấp", desc: "Not tall." },
+                        { word: "Curly hair", type: "appearance", ipa: "/ˈkɜːli heə/", vi: "Tóc xoăn", desc: "Hair with curls." },
+                        { word: "Mustache", type: "appearance", ipa: "/məˈstɑːʃ/", vi: "Ria mép", desc: "Hair above lips." }
+                    ]
+                },
+
+                unit7: {
+                    title: "Unit 7: My Family",
+                    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=600&auto=format&fit=crop&q=80",
+                    content: "My father is a farmer. My aunt is a cashier.",
+                    vocab: [
+                        { word: "Doctor", type: "job", ipa: "/ˈdɒktər/", vi: "Bác sĩ", desc: "Hospital worker." },
+                        { word: "Farmer", type: "job", ipa: "/ˈfɑːmər/", vi: "Nông dân", desc: "Works on a farm." },
+                        { word: "Cook", type: "job", ipa: "/kʊk/", vi: "Đầu bếp", desc: "Makes food." },
+                        { word: "Cashier", type: "job", ipa: "/kæˈʃɪər/", vi: "Thu ngân", desc: "Handles money in store." }
+                    ]
+                },
+
+                unit8: {
+                    title: "Unit 8: My Friends and I",
+                    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
+                    content: "Yesterday we went to the museum and amusement park.",
+                    vocab: [
+                        { word: "Yesterday", type: "time", ipa: "/ˈjestədeɪ/", vi: "Hôm qua", desc: "The day before today." },
+                        { word: "Museum", type: "place", ipa: "/mjuˈziːəm/", vi: "Bảo tàng", desc: "Place with history items." },
+                        { word: "Amusement park", type: "place", ipa: "/əˈmjuːzmənt pɑːk/", vi: "Công viên giải trí", desc: "Fun ride park." },
+                        { word: "Playground", type: "place", ipa: "/ˈpleɪɡraʊnd/", vi: "Sân chơi", desc: "Children play area." }
                     ]
                 }
             },
+
+            
             ss_5: {
-                theme1: {
-                    title: "Smart Start 5 - Theme 1: School",
-                    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&auto=format&fit=crop&q=80",
-                    content: "Welcome back to school! Our school has a large playground, a modern computer room, and a big library.",
+                unit1_school: {
+                    title: "Unit 1: School",
+                    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&auto=format&fit=crop&q=80",
+                    content: "I like science because I like doing experiments. English class starts at eight o'clock.",
                     vocab: [
-                        { word: "Playground", type: "noun", ipa: "/ˈpleɪɡraʊnd/", vi: "Sân chơi", desc: "An outdoor area provided for children to play on." },
-                        { word: "Library", type: "noun", ipa: "/ˈlaɪbrəri/", vi: "Thư viện", desc: "A building containing collections of books." },
-                        { word: "Subject", type: "noun", ipa: "/ˈsʌbdʒɪkt/", vi: "Môn học", desc: "An area of knowledge studied." }
+                        { word: "Geography", type: "subject", ipa: "/dʒiˈɒɡrəfi/", vi: "Địa lý", desc: "Study of places and Earth." },
+                        { word: "History", type: "subject", ipa: "/ˈhɪstri/", vi: "Lịch sử", desc: "Study of the past." },
+                        { word: "Science", type: "subject", ipa: "/ˈsaɪəns/", vi: "Khoa học", desc: "Study of nature and experiments." },
+                        { word: "I.T.", type: "subject", ipa: "/ˌaɪ ˈtiː/", vi: "Tin học", desc: "Computer studies." },
+                        { word: "Vietnamese", type: "subject", ipa: "/ˌviːetnəˈmiːz/", vi: "Tiếng Việt", desc: "Vietnamese language subject." },
+                        { word: "Ethics", type: "subject", ipa: "/ˈeθɪks/", vi: "Đạo đức", desc: "Learning good behavior." },
+                        { word: "Solving problems", type: "activity", ipa: "/ˈsɒlvɪŋ ˈprɒbləmz/", vi: "Giải bài tập", desc: "Finding answers." },
+                        { word: "Doing experiments", type: "activity", ipa: "/ˈduːɪŋ ɪkˈsperɪmənts/", vi: "Làm thí nghiệm", desc: "Science activities." },
+                        { word: "Using computers", type: "activity", ipa: "/ˈjuːzɪŋ kəmˈpjuːtəz/", vi: "Sử dụng máy tính", desc: "Working with computers." },
+                        { word: "Always", type: "frequency", ipa: "/ˈɔːlweɪz/", vi: "Luôn luôn", desc: "Every time." },
+                        { word: "Usually", type: "frequency", ipa: "/ˈjuːʒuəli/", vi: "Thường xuyên", desc: "Most of the time." },
+                        { word: "Sometimes", type: "frequency", ipa: "/ˈsʌmtaɪmz/", vi: "Thỉnh thoảng", desc: "Not always." }
+                    ]
+                },
+
+                unit1_time: {
+                    title: "Time & Timetable",
+                    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&auto=format&fit=crop&q=80",
+                    content: "My English class starts at eight o'clock. Science class starts at two-thirty p.m.",
+                    vocab: [
+                        { word: "a.m.", type: "time", ipa: "/ˌeɪ ˈem/", vi: "Buổi sáng", desc: "Before noon." },
+                        { word: "p.m.", type: "time", ipa: "/ˌpiː ˈem/", vi: "Buổi chiều/tối", desc: "After noon." },
+                        { word: "Eight o'clock", type: "time", ipa: "/eɪt əˈklɒk/", vi: "8 giờ", desc: "Exact hour." },
+                        { word: "Two-thirty", type: "time", ipa: "/tuː ˈθɜːti/", vi: "2 giờ 30", desc: "Half past two." },
+                        { word: "A quarter to four", type: "time", ipa: "/ə ˈkwɔːtə tuː fɔː/", vi: "3 giờ 45", desc: "15 minutes before four." },
+                        { word: "Five past nine", type: "time", ipa: "/faɪv pɑːst naɪn/", vi: "9 giờ 05", desc: "5 minutes after nine." }
+                    ]
+                },
+
+                unit2: {
+                    title: "Unit 2: Holidays",
+                    image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&auto=format&fit=crop&q=80",
+                    content: "My favorite holiday is Lunar New Year. We celebrate Christmas in December.",
+                    vocab: [
+                        { word: "Halloween", type: "holiday", ipa: "/ˌhæləʊˈiːn/", vi: "Lễ Halloween", desc: "Holiday with costumes." },
+                        { word: "New Year's Eve", type: "holiday", ipa: "/njuː jɪəz iːv/", vi: "Đêm giao thừa", desc: "Night before New Year." },
+                        { word: "Lunar New Year", type: "holiday", ipa: "/ˈluːnə njuː jɪə/", vi: "Tết Nguyên Đán", desc: "Vietnamese New Year." },
+                        { word: "Christmas", type: "holiday", ipa: "/ˈkrɪsməs/", vi: "Giáng Sinh", desc: "Holiday in December." },
+                        { word: "Teachers' Day", type: "holiday", ipa: "/ˈtiːtʃəz deɪ/", vi: "Ngày Nhà Giáo", desc: "Celebration for teachers." },
+                        { word: "Children's Day", type: "holiday", ipa: "/ˈtʃɪldrənz deɪ/", vi: "Ngày Thiếu Nhi", desc: "Special day for children." }
+                    ]
+                },
+
+                unit3: {
+                    title: "Unit 3: My Friends and I",
+                    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80",
+                    content: "My friend is tall and friendly. We often play badminton together.",
+                    vocab: [
+                        { word: "Friendly", type: "personality", ipa: "/ˈfrendli/", vi: "Thân thiện", desc: "Kind and nice." },
+                        { word: "Funny", type: "personality", ipa: "/ˈfʌni/", vi: "Vui tính", desc: "Makes people laugh." },
+                        { word: "Tall", type: "appearance", ipa: "/tɔːl/", vi: "Cao", desc: "High height." },
+                        { word: "Free-time activities", type: "topic", ipa: "/friː taɪm ækˈtɪvətiz/", vi: "Hoạt động giải trí", desc: "Activities after school." }
+                    ]
+                },
+
+                unit4: {
+                    title: "Unit 4: Travel",
+                    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&auto=format&fit=crop&q=80",
+                    content: "I traveled to Japan by airplane during my vacation.",
+                    vocab: [
+                        { word: "Country", type: "travel", ipa: "/ˈkʌntri/", vi: "Quốc gia", desc: "A nation." },
+                        { word: "Transportation", type: "travel", ipa: "/ˌtrænspɔːˈteɪʃn/", vi: "Phương tiện di chuyển", desc: "Ways to travel." },
+                        { word: "Vacation", type: "travel", ipa: "/veɪˈkeɪʃn/", vi: "Kỳ nghỉ", desc: "Holiday trip." },
+                        { word: "Airplane", type: "travel", ipa: "/ˈeəpleɪn/", vi: "Máy bay", desc: "Flying vehicle." }
+                    ]
+                },
+
+                unit5: {
+                    title: "Unit 5: Health",
+                    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&auto=format&fit=crop&q=80",
+                    content: "Healthy habits help us stay strong. Medicine helps sick people.",
+                    vocab: [
+                        { word: "Medicine", type: "health", ipa: "/ˈmedsn/", vi: "Thuốc", desc: "Used to treat sickness." },
+                        { word: "Healthy habits", type: "health", ipa: "/ˈhelθi ˈhæbɪts/", vi: "Thói quen lành mạnh", desc: "Good daily habits." },
+                        { word: "Body care", type: "health", ipa: "/ˈbɒdi keə/", vi: "Chăm sóc cơ thể", desc: "Keeping body clean and healthy." },
+                        { word: "Exercise", type: "health", ipa: "/ˈeksəsaɪz/", vi: "Tập thể dục", desc: "Physical activity." }
+                    ]
+                },
+
+                unit6: {
+                    title: "Unit 6: Food and Drinks",
+                    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80",
+                    content: "We cook noodles and drink orange juice at the restaurant.",
+                    vocab: [
+                        { word: "Meals", type: "food", ipa: "/miːlz/", vi: "Bữa ăn", desc: "Breakfast, lunch, dinner." },
+                        { word: "Cooking", type: "food", ipa: "/ˈkʊkɪŋ/", vi: "Nấu ăn", desc: "Preparing food." },
+                        { word: "Drinks", type: "food", ipa: "/drɪŋks/", vi: "Đồ uống", desc: "Liquids to drink." },
+                        { word: "Restaurant", type: "place", ipa: "/ˈrestrɒnt/", vi: "Nhà hàng", desc: "Place to eat food." }
+                    ]
+                },
+
+                unit7: {
+                    title: "Unit 7: Jobs",
+                    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop&q=80",
+                    content: "My dream job is to become a doctor and work in a hospital.",
+                    vocab: [
+                        { word: "Occupation", type: "job", ipa: "/ˌɒkjuˈpeɪʃn/", vi: "Nghề nghiệp", desc: "Type of work." },
+                        { word: "Workplace", type: "job", ipa: "/ˈwɜːkpleɪs/", vi: "Nơi làm việc", desc: "Place for working." },
+                        { word: "Future job", type: "job", ipa: "/ˈfjuːtʃə dʒɒb/", vi: "Nghề tương lai", desc: "Dream career." },
+                        { word: "Engineer", type: "job", ipa: "/ˌendʒɪˈnɪə/", vi: "Kỹ sư", desc: "Person who designs things." }
+                    ]
+                },
+
+                unit8: {
+                    title: "Unit 8: Weather",
+                    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&auto=format&fit=crop&q=80",
+                    content: "Summer is hot and sunny. Winter is cold and snowy.",
+                    vocab: [
+                        { word: "Season", type: "weather", ipa: "/ˈsiːzn/", vi: "Mùa", desc: "Part of the year." },
+                        { word: "Climate", type: "weather", ipa: "/ˈklaɪmət/", vi: "Khí hậu", desc: "Long-term weather." },
+                        { word: "Outdoor activities", type: "weather", ipa: "/ˈaʊtdɔːr ækˈtɪvətiz/", vi: "Hoạt động ngoài trời", desc: "Activities outside." },
+                        { word: "Snowy", type: "weather", ipa: "/ˈsnəʊi/", vi: "Có tuyết", desc: "Weather with snow." }
                     ]
                 }
             }
+
         };
 
         const textbookLinks = {
@@ -1131,6 +2070,14 @@
             ss_3: "https://online.flipbuilder.com/sdtta/skiv/",
             ss_4: "https://online.flipbuilder.com/sdtta/nhks/",
             ss_5: "https://online.flipbuilder.com/sdtta/uehz/"
+        };
+
+        const pdfBooks = {
+            "1": "https://online.flipbuilder.com/sdtta/vugc/",
+            "2": "https://online.flipbuilder.com/sdtta/mcbr/",
+            "3": "https://online.flipbuilder.com/sdtta/skiv/",
+            "4": "https://online.flipbuilder.com/sdtta/nhks/",
+            "5": "https://online.flipbuilder.com/sdtta/uehz/"
         };
 
         const DEFAULT_ADMIN_PASS = "215151365";
@@ -1507,7 +2454,19 @@
             showToast(`Đã đổi chủ đề: ${target.title}`);
         }
 
+        
+        function openPdfBook(grade) {
+            const link = pdfBooks[grade];
+            if (link) {
+                window.open(link, '_blank');
+                showToast(`📚 Đang mở PDF lớp ${grade}...`);
+            } else {
+                showToast("Chưa cập nhật file PDF cho lớp này.");
+            }
+        }
+
         function openCustomTextbook(classKey) {
+
             const url = textbookLinks[classKey];
             if (url) {
                 window.open(url, '_blank');
@@ -3013,5 +3972,97 @@
             showToast("Đã sao chép mã nhúng thành công!", "fa-solid fa-copy");
         }
     </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hideSelectors = [
+        '.curriculum-preview',
+        '.topic-preview',
+        '.unit-preview',
+        '.lesson-sidebar',
+        '.external-topic-list',
+        '.theme-overview-panel'
+    ];
+
+    hideSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.style.display = 'none';
+        });
+    });
+
+    // Keep only active lesson content visible
+    document.querySelectorAll('.theme-card').forEach(card => {
+        card.addEventListener('click', () => {
+            document.querySelectorAll('.theme-content').forEach(c => {
+                c.style.display = 'none';
+            });
+        });
+    });
+});
+</script>
+
+<!-- MINI FLOATING DICTIONARY -->
+<div class="smart-dictionary-mini" onclick="toggleDictionaryMini()">
+    📖
+</div>
+
+<div id="dictionaryMiniPanel" class="dictionary-panel">
+    <div class="flex items-center justify-between mb-3">
+        <h3 class="font-black text-sm text-slate-800">📚 Tra Cứu Từ Điển</h3>
+        <button onclick="toggleDictionaryMini()" class="text-slate-500 text-lg">✕</button>
+    </div>
+
+    <input 
+        id="miniDictionaryInput"
+        type="text"
+        placeholder="Nhập từ tiếng Anh..."
+        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none mb-3"
+    />
+
+    <button 
+        onclick="searchMiniDictionary()"
+        class="w-full bg-gradient-to-r from-blue-500 to-violet-500 text-white rounded-xl py-3 font-bold text-sm"
+    >
+        🔍 Tra cứu
+    </button>
+
+    <div id="miniDictionaryResult" class="mt-4 text-sm text-slate-700 leading-relaxed"></div>
+</div>
+
+<script>
+function toggleDictionaryMini(){
+    document.getElementById('dictionaryMiniPanel').classList.toggle('active');
+}
+
+function searchMiniDictionary(){
+    const word = document.getElementById('miniDictionaryInput').value.trim();
+    const result = document.getElementById('miniDictionaryResult');
+
+    if(!word){
+        result.innerHTML = '⚠️ Vui lòng nhập từ cần tra cứu.';
+        return;
+    }
+
+    result.innerHTML = `
+        <div class="bg-slate-50 rounded-xl p-3 border border-slate-100">
+            <div class="font-black text-blue-600 text-base">${word}</div>
+            <div class="text-xs text-slate-500 mt-1">AI Dictionary Demo</div>
+            <div class="mt-2">
+                📖 Nghĩa tiếng Việt đang được cập nhật thông minh theo hệ thống Smart Start.
+            </div>
+        </div>
+    `;
+}
+</script>
+
+<script>
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+    document.body.style.transition = 'opacity .35s ease';
+});
+
+document.body.style.opacity = '0.98';
+</script>
+
 </body>
 </html>
