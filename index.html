@@ -1049,81 +1049,685 @@
             ]
         };
 
-        const smartStartDatabase = {
-            ss_1: {
-                theme1: {
-                    title: "Smart Start 1 - Theme 1: Hello!",
-                    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80",
-                    content: "Hello! My name is Bill. What is your name? Nice to meet you. Good-bye!",
-                    vocab: [
-                        { word: "Hello", type: "excl", ipa: "/həˈləʊ/", vi: "Xin chào", desc: "Used as a greeting." },
-                        { word: "Name", type: "noun", ipa: "/neɪm/", vi: "Tên", desc: "A word by which a person is known." },
-                        { word: "Meet", type: "verb", ipa: "/miːt/", vi: "Gặp gỡ", desc: "To come into contact with someone." },
-                        { word: "Good-bye", type: "excl", ipa: "/ˌɡʊdˈbaɪ/", vi: "Tạm biệt", desc: "Used to express good wishes when parting." }
-                    ]
-                },
-                theme2: {
-                    title: "Smart Start 1 - Theme 2: School",
-                    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&auto=format&fit=crop&q=80",
-                    content: "This is my school. I have a book, a pencil, and a ruler in my bag. I like my classroom.",
-                    vocab: [
-                        { word: "School", type: "noun", ipa: "/skuːl/", vi: "Trường học", desc: "A place where people go to learn." },
-                        { word: "Pencil", type: "noun", ipa: "/ˈpensl/", vi: "Bút chì", desc: "An instrument for writing or drawing." },
-                        { word: "Book", type: "noun", ipa: "/bʊk/", vi: "Sách", desc: "A written or printed work." },
-                        { word: "Ruler", type: "noun", ipa: "/ˈruːlər/", vi: "Thước kẻ", desc: "A straight strip of plastic or wood." }
-                    ]
-                }
-            },
-            ss_2: {
-                theme1: {
-                    title: "Smart Start 2 - Theme 1: Feelings",
-                    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&auto=format&fit=crop&q=80",
-                    content: "Today, I feel happy. My friend is sad. Are you hot or cold? We are fine, thank you.",
-                    vocab: [
-                        { word: "Happy", type: "adj", ipa: "/ˈhæpi/", vi: "Vui vẻ, hạnh phúc", desc: "Feeling or showing pleasure." },
-                        { word: "Sad", type: "adj", ipa: "/sæd/", vi: "Buồn bã", desc: "Feeling or showing sorrow." },
-                        { word: "Fine", type: "adj", ipa: "/faɪn/", vi: "Khỏe, tốt", desc: "In a satisfactory state." }
-                    ]
-                }
-            },
-            ss_3: {
-                theme1: {
-                    title: "Smart Start 3 - Theme 1: My Friends",
-                    image: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&auto=format&fit=crop&q=80",
-                    content: "Hello! I am from Vietnam. My friend is Alfie. He is from Alpha. We like to paint and dance together.",
-                    vocab: [
-                        { word: "Friend", type: "noun", ipa: "/frend/", vi: "Bạn bè", desc: "A person who you like and trust." },
-                        { word: "Dance", type: "verb", ipa: "/dɑːns/", vi: "Nhảy, múa", desc: "To move the body and feet to music." },
-                        { word: "Paint", type: "verb", ipa: "/peɪnt/", vi: "Vẽ tranh", desc: "To cover a surface with paint." }
-                    ]
-                }
-            },
-            ss_4: {
-                theme1: {
-                    title: "Smart Start 4 - Theme 1: Animals",
-                    image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=600&auto=format&fit=crop&q=80",
-                    content: "Look at the animals in the zoo. The monkeys are swinging on the trees. The giraffes are eating leaves. The lions are roaring loudly under the warm sun.",
-                    vocab: [
-                        { word: "Zoo", type: "noun", ipa: "/zuː/", vi: "Sở thú", desc: "A place where many wild animals are kept." },
-                        { word: "Giraffe", type: "noun", ipa: "/dʒəˈrɑːf/", vi: "Hươu cao cổ", desc: "A large African animal with a very long neck." },
-                        { word: "Swinging", type: "verb", ipa: "/ˈswɪŋɪŋ/", vi: "Đu đưa, đánh đu", desc: "Moving back and forth while suspended." },
-                        { word: "Roaring", type: "verb/noun", ipa: "/ˈrɔːrɪŋ/", vi: "Tiếng gầm", desc: "Making a loud, deep sound, especially a lion." }
-                    ]
-                }
-            },
-            ss_5: {
-                theme1: {
-                    title: "Smart Start 5 - Theme 1: School",
-                    image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&auto=format&fit=crop&q=80",
-                    content: "Welcome back to school! Our school has a large playground, a modern computer room, and a big library.",
-                    vocab: [
-                        { word: "Playground", type: "noun", ipa: "/ˈpleɪɡraʊnd/", vi: "Sân chơi", desc: "An outdoor area provided for children to play on." },
-                        { word: "Library", type: "noun", ipa: "/ˈlaɪbrəri/", vi: "Thư viện", desc: "A building containing collections of books." },
-                        { word: "Subject", type: "noun", ipa: "/ˈsʌbdʒɪkt/", vi: "Môn học", desc: "An area of knowledge studied." }
-                    ]
-                }
-            }
-        };
+        
+const smartStartDatabase = {
+ss_1: {
+
+        theme1: {
+            title: "Smart Start 1 - Unit 1",
+            image: "https://picsum.photos/seed/11/800/500",
+            content: "This is Smart Start 1 Unit 1. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme2: {
+            title: "Smart Start 1 - Unit 2",
+            image: "https://picsum.photos/seed/12/800/500",
+            content: "This is Smart Start 1 Unit 2. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme3: {
+            title: "Smart Start 1 - Unit 3",
+            image: "https://picsum.photos/seed/13/800/500",
+            content: "This is Smart Start 1 Unit 3. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme4: {
+            title: "Smart Start 1 - Unit 4",
+            image: "https://picsum.photos/seed/14/800/500",
+            content: "This is Smart Start 1 Unit 4. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme5: {
+            title: "Smart Start 1 - Unit 5",
+            image: "https://picsum.photos/seed/15/800/500",
+            content: "This is Smart Start 1 Unit 5. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme6: {
+            title: "Smart Start 1 - Unit 6",
+            image: "https://picsum.photos/seed/16/800/500",
+            content: "This is Smart Start 1 Unit 6. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme7: {
+            title: "Smart Start 1 - Unit 7",
+            image: "https://picsum.photos/seed/17/800/500",
+            content: "This is Smart Start 1 Unit 7. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme8: {
+            title: "Smart Start 1 - Unit 8",
+            image: "https://picsum.photos/seed/18/800/500",
+            content: "This is Smart Start 1 Unit 8. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme9: {
+            title: "Smart Start 1 - Unit 9",
+            image: "https://picsum.photos/seed/19/800/500",
+            content: "This is Smart Start 1 Unit 9. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme10: {
+            title: "Smart Start 1 - Unit 10",
+            image: "https://picsum.photos/seed/110/800/500",
+            content: "This is Smart Start 1 Unit 10. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme11: {
+            title: "Smart Start 1 - Unit 11",
+            image: "https://picsum.photos/seed/111/800/500",
+            content: "This is Smart Start 1 Unit 11. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme12: {
+            title: "Smart Start 1 - Unit 12",
+            image: "https://picsum.photos/seed/112/800/500",
+            content: "This is Smart Start 1 Unit 12. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        }
+},
+ss_2: {
+
+        theme1: {
+            title: "Smart Start 2 - Unit 1",
+            image: "https://picsum.photos/seed/21/800/500",
+            content: "This is Smart Start 2 Unit 1. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme2: {
+            title: "Smart Start 2 - Unit 2",
+            image: "https://picsum.photos/seed/22/800/500",
+            content: "This is Smart Start 2 Unit 2. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme3: {
+            title: "Smart Start 2 - Unit 3",
+            image: "https://picsum.photos/seed/23/800/500",
+            content: "This is Smart Start 2 Unit 3. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme4: {
+            title: "Smart Start 2 - Unit 4",
+            image: "https://picsum.photos/seed/24/800/500",
+            content: "This is Smart Start 2 Unit 4. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme5: {
+            title: "Smart Start 2 - Unit 5",
+            image: "https://picsum.photos/seed/25/800/500",
+            content: "This is Smart Start 2 Unit 5. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme6: {
+            title: "Smart Start 2 - Unit 6",
+            image: "https://picsum.photos/seed/26/800/500",
+            content: "This is Smart Start 2 Unit 6. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme7: {
+            title: "Smart Start 2 - Unit 7",
+            image: "https://picsum.photos/seed/27/800/500",
+            content: "This is Smart Start 2 Unit 7. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme8: {
+            title: "Smart Start 2 - Unit 8",
+            image: "https://picsum.photos/seed/28/800/500",
+            content: "This is Smart Start 2 Unit 8. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme9: {
+            title: "Smart Start 2 - Unit 9",
+            image: "https://picsum.photos/seed/29/800/500",
+            content: "This is Smart Start 2 Unit 9. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme10: {
+            title: "Smart Start 2 - Unit 10",
+            image: "https://picsum.photos/seed/210/800/500",
+            content: "This is Smart Start 2 Unit 10. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme11: {
+            title: "Smart Start 2 - Unit 11",
+            image: "https://picsum.photos/seed/211/800/500",
+            content: "This is Smart Start 2 Unit 11. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme12: {
+            title: "Smart Start 2 - Unit 12",
+            image: "https://picsum.photos/seed/212/800/500",
+            content: "This is Smart Start 2 Unit 12. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        }
+},
+ss_3: {
+
+        theme1: {
+            title: "Smart Start 3 - Unit 1",
+            image: "https://picsum.photos/seed/31/800/500",
+            content: "This is Smart Start 3 Unit 1. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme2: {
+            title: "Smart Start 3 - Unit 2",
+            image: "https://picsum.photos/seed/32/800/500",
+            content: "This is Smart Start 3 Unit 2. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme3: {
+            title: "Smart Start 3 - Unit 3",
+            image: "https://picsum.photos/seed/33/800/500",
+            content: "This is Smart Start 3 Unit 3. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme4: {
+            title: "Smart Start 3 - Unit 4",
+            image: "https://picsum.photos/seed/34/800/500",
+            content: "This is Smart Start 3 Unit 4. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme5: {
+            title: "Smart Start 3 - Unit 5",
+            image: "https://picsum.photos/seed/35/800/500",
+            content: "This is Smart Start 3 Unit 5. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme6: {
+            title: "Smart Start 3 - Unit 6",
+            image: "https://picsum.photos/seed/36/800/500",
+            content: "This is Smart Start 3 Unit 6. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme7: {
+            title: "Smart Start 3 - Unit 7",
+            image: "https://picsum.photos/seed/37/800/500",
+            content: "This is Smart Start 3 Unit 7. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme8: {
+            title: "Smart Start 3 - Unit 8",
+            image: "https://picsum.photos/seed/38/800/500",
+            content: "This is Smart Start 3 Unit 8. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme9: {
+            title: "Smart Start 3 - Unit 9",
+            image: "https://picsum.photos/seed/39/800/500",
+            content: "This is Smart Start 3 Unit 9. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme10: {
+            title: "Smart Start 3 - Unit 10",
+            image: "https://picsum.photos/seed/310/800/500",
+            content: "This is Smart Start 3 Unit 10. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme11: {
+            title: "Smart Start 3 - Unit 11",
+            image: "https://picsum.photos/seed/311/800/500",
+            content: "This is Smart Start 3 Unit 11. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme12: {
+            title: "Smart Start 3 - Unit 12",
+            image: "https://picsum.photos/seed/312/800/500",
+            content: "This is Smart Start 3 Unit 12. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        }
+},
+ss_4: {
+
+        theme1: {
+            title: "Smart Start 4 - Unit 1",
+            image: "https://picsum.photos/seed/41/800/500",
+            content: "This is Smart Start 4 Unit 1. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme2: {
+            title: "Smart Start 4 - Unit 2",
+            image: "https://picsum.photos/seed/42/800/500",
+            content: "This is Smart Start 4 Unit 2. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme3: {
+            title: "Smart Start 4 - Unit 3",
+            image: "https://picsum.photos/seed/43/800/500",
+            content: "This is Smart Start 4 Unit 3. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme4: {
+            title: "Smart Start 4 - Unit 4",
+            image: "https://picsum.photos/seed/44/800/500",
+            content: "This is Smart Start 4 Unit 4. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme5: {
+            title: "Smart Start 4 - Unit 5",
+            image: "https://picsum.photos/seed/45/800/500",
+            content: "This is Smart Start 4 Unit 5. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme6: {
+            title: "Smart Start 4 - Unit 6",
+            image: "https://picsum.photos/seed/46/800/500",
+            content: "This is Smart Start 4 Unit 6. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme7: {
+            title: "Smart Start 4 - Unit 7",
+            image: "https://picsum.photos/seed/47/800/500",
+            content: "This is Smart Start 4 Unit 7. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme8: {
+            title: "Smart Start 4 - Unit 8",
+            image: "https://picsum.photos/seed/48/800/500",
+            content: "This is Smart Start 4 Unit 8. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme9: {
+            title: "Smart Start 4 - Unit 9",
+            image: "https://picsum.photos/seed/49/800/500",
+            content: "This is Smart Start 4 Unit 9. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme10: {
+            title: "Smart Start 4 - Unit 10",
+            image: "https://picsum.photos/seed/410/800/500",
+            content: "This is Smart Start 4 Unit 10. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme11: {
+            title: "Smart Start 4 - Unit 11",
+            image: "https://picsum.photos/seed/411/800/500",
+            content: "This is Smart Start 4 Unit 11. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme12: {
+            title: "Smart Start 4 - Unit 12",
+            image: "https://picsum.photos/seed/412/800/500",
+            content: "This is Smart Start 4 Unit 12. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        }
+},
+ss_5: {
+
+        theme1: {
+            title: "Smart Start 5 - Unit 1",
+            image: "https://picsum.photos/seed/51/800/500",
+            content: "This is Smart Start 5 Unit 1. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme2: {
+            title: "Smart Start 5 - Unit 2",
+            image: "https://picsum.photos/seed/52/800/500",
+            content: "This is Smart Start 5 Unit 2. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme3: {
+            title: "Smart Start 5 - Unit 3",
+            image: "https://picsum.photos/seed/53/800/500",
+            content: "This is Smart Start 5 Unit 3. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme4: {
+            title: "Smart Start 5 - Unit 4",
+            image: "https://picsum.photos/seed/54/800/500",
+            content: "This is Smart Start 5 Unit 4. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme5: {
+            title: "Smart Start 5 - Unit 5",
+            image: "https://picsum.photos/seed/55/800/500",
+            content: "This is Smart Start 5 Unit 5. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme6: {
+            title: "Smart Start 5 - Unit 6",
+            image: "https://picsum.photos/seed/56/800/500",
+            content: "This is Smart Start 5 Unit 6. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme7: {
+            title: "Smart Start 5 - Unit 7",
+            image: "https://picsum.photos/seed/57/800/500",
+            content: "This is Smart Start 5 Unit 7. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme8: {
+            title: "Smart Start 5 - Unit 8",
+            image: "https://picsum.photos/seed/58/800/500",
+            content: "This is Smart Start 5 Unit 8. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme9: {
+            title: "Smart Start 5 - Unit 9",
+            image: "https://picsum.photos/seed/59/800/500",
+            content: "This is Smart Start 5 Unit 9. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme10: {
+            title: "Smart Start 5 - Unit 10",
+            image: "https://picsum.photos/seed/510/800/500",
+            content: "This is Smart Start 5 Unit 10. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme11: {
+            title: "Smart Start 5 - Unit 11",
+            image: "https://picsum.photos/seed/511/800/500",
+            content: "This is Smart Start 5 Unit 11. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        },
+        theme12: {
+            title: "Smart Start 5 - Unit 12",
+            image: "https://picsum.photos/seed/512/800/500",
+            content: "This is Smart Start 5 Unit 12. Students learn English vocabulary, speaking, listening, and reading skills through fun activities.",
+            vocab: [
+                { word: "Student", type: "noun", ipa: "/ˈstjuːdnt/", vi: "Học sinh", desc: "Người học." },
+                { word: "Learn", type: "verb", ipa: "/lɜːn/", vi: "Học", desc: "Tiếp thu kiến thức." },
+                { word: "English", type: "noun", ipa: "/ˈɪŋɡlɪʃ/", vi: "Tiếng Anh", desc: "Ngôn ngữ quốc tế." },
+                { word: "Practice", type: "verb", ipa: "/ˈpræktɪs/", vi: "Luyện tập", desc: "Thực hành thường xuyên." }
+            ]
+        }
+}
+};
+
 
         const textbookLinks = {
             ss_1: "https://online.flipbuilder.com/sdtta/vugc/",
@@ -3012,6 +3616,15 @@
             document.body.removeChild(tempInput);
             showToast("Đã sao chép mã nhúng thành công!", "fa-solid fa-copy");
         }
-    </script>
+    
+window.addEventListener('load', () => {
+    try {
+        loadSmartStartThemes('ss_1');
+    } catch(e) {
+        console.log(e);
+    }
+});
+
+</script>
 </body>
 </html>
