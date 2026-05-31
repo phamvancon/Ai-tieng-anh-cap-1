@@ -256,6 +256,13 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="pt-1">
+                            <button onclick="openTextbookFlipbook()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-extrabold text-xs py-2.5 rounded-xl transition active:scale-95 flex items-center justify-center space-x-1.5 shadow-sm">
+                                <i class="fa-solid fa-book-open"></i>
+                                <span id="textbook-btn-text">Mở Sách Giáo Khoa Lớp 4 Online 📖</span>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Daily Challenge Box -->
@@ -1462,6 +1469,25 @@
         let currentActiveTask = readingDatabase.cap_1;
         let currentCurriculumMode = "daily"; // "daily" or "smart_start"
 
+        const textbookLinks = {
+            ss_1: "https://online.flipbuilder.com/sdtta/vugc/",
+            ss_2: "https://online.flipbuilder.com/sdtta/mcbr/",
+            ss_3: "https://online.flipbuilder.com/sdtta/skiv/",
+            ss_4: "https://online.flipbuilder.com/sdtta/nhks/",
+            ss_5: "https://online.flipbuilder.com/sdtta/uehz/"
+        };
+
+        function openTextbookFlipbook() {
+            const classVal = document.getElementById("smart-class-selector").value;
+            const url = textbookLinks[classVal];
+            if (url) {
+                window.open(url, '_blank');
+                showToast("Đang mở sách giáo khoa online trên tab mới...", "fa-solid fa-arrow-up-right-from-square");
+            } else {
+                showToast("Chưa có liên kết cho lớp này!");
+            }
+        }
+
         function switchCurriculum(mode) {
             currentCurriculumMode = mode;
             const smartBox = document.getElementById("smart-start-selector-box");
@@ -1487,6 +1513,13 @@
                     themeSelector.appendChild(option);
                 });
                 loadSmartThemeContent(themeSelector.value);
+            }
+            
+            // Đồng bộ tên nhãn nút lật sách giáo khoa tương ứng
+            const classNum = classKey.split("_")[1];
+            const btnText = document.getElementById("textbook-btn-text");
+            if (btnText) {
+                btnText.innerText = `Mở Sách Giáo Khoa Lớp ${classNum} Online 📖`;
             }
         }
 
