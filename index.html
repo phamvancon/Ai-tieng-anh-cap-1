@@ -2,7 +2,11 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#2563eb">
     <title>English Daily - Luyện Đọc & Đàm Thoại AI Học Sinh Các Cấp</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -71,12 +75,70 @@
         .bubble-item {
             animation: bubble-float 6s linear infinite;
         }
-    </style>
+    
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+iframe {
+    width: 100%;
+    border: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+textarea,
+select,
+button {
+    font-size: 16px !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+}
+
+@media (max-width: 768px) {
+    .max-w-md {
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+    }
+
+    main {
+        padding-bottom: 100px !important;
+    }
+
+    header {
+        border-radius: 0 0 24px 24px !important;
+    }
+}
+
+</style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- APP WRAPPER (Căn giữa tối ưu hóa thiết bị di động, mượt mà trên Google Sites iFrame) -->
-    <div class="w-full max-w-md mx-auto bg-white min-h-screen flex flex-col shadow-2xl relative pb-20">
+    <div class="w-full max-w-6xl mx-auto bg-white min-h-screen flex flex-col lg:flex-row shadow-2xl relative overflow-hidden">
         
         <!-- MÀN HÌNH CHỜ & ĐĂNG NHẬP / ĐĂNG KÝ HỌC SINH (VIEW-AUTH) -->
         <div id="view-auth" class="flex-1 flex flex-col p-6 justify-between bg-gradient-to-b from-brand-50 to-white">
@@ -205,7 +267,7 @@
                 </div>
             </header>
 
-            <main class="flex-1 p-4 overflow-y-auto custom-scrollbar">
+            <main class="flex-1 p-3 md:p-5 overflow-y-auto custom-scrollbar w-full">
                 
                 <!-- Tab Controls -->
                 <div class="grid grid-cols-3 bg-slate-100 rounded-xl p-1 mb-4 shadow-inner">
@@ -568,7 +630,7 @@
             </main>
 
             <!-- FLOATING BOTTOM DICTIONARY BAR -->
-            <footer class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-3 shadow-2xl z-40">
+            <footer class="fixed md:absolute bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-3 shadow-2xl z-40">
                 <div class="flex items-center space-x-2">
                     <div class="relative flex-1">
                         <input type="text" id="dict-quick-input" placeholder="Tra nhanh Anh - Việt (nhấn enter)..." onkeydown="if(event.key === 'Enter') lookupWordDirectly()" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
@@ -825,8 +887,19 @@
         // Audio Context for local synthesized Sound Effects
         let audioCtx = null;
 
+        const DEVICE_INFO = {
+            isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent),
+            isAndroid: /Android/.test(navigator.userAgent),
+            isMobile: /Android|iPhone|iPad|iPod/i.test(navigator.userAgent),
+            isSafari: /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
+            isChrome: /Chrome/i.test(navigator.userAgent)
+        };
+
+        console.log("DEVICE:", DEVICE_INFO);
+
         // Initialize connection
         window.addEventListener('DOMContentLoaded', async () => {
+            detectIframeMode();
             initSystem();
             initAudioContext();
         });
@@ -932,6 +1005,67 @@
                 }
             }
         }
+
+        
+        function detectIframeMode() {
+            const isIframe = window.self !== window.top;
+
+            if (isIframe) {
+                console.log("Running inside iframe mode");
+
+                document.body.classList.add("iframe-mode");
+
+                if (typeof showToast === 'function') {
+                    showToast(
+                        "Đang chạy trong Google Sites",
+                        "fa-solid fa-window-maximize text-blue-400"
+                    );
+                }
+            }
+        }
+
+        window.SpeechRecognition =
+            window.SpeechRecognition ||
+            window.webkitSpeechRecognition;
+
+        async function requestMicrophonePermission() {
+            try {
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    return false;
+                }
+
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true
+                    }
+                });
+
+                stream.getTracks().forEach(track => track.stop());
+
+                return true;
+            } catch (error) {
+                console.error(error);
+
+                if (DEVICE_INFO.isIOS) {
+                    alert("Safari chưa cấp quyền microphone!");
+                }
+
+                return false;
+            }
+        }
+
+        function unlockIOSAudio() {
+            const utterance = new SpeechSynthesisUtterance(' ');
+            utterance.volume = 0;
+            speechSynthesis.speak(utterance);
+        }
+
+        window.addEventListener('touchstart', unlockIOSAudio, {
+            once: true
+        });
+
 
         // =========================================================================
         // 2. CHILD ACCOUNT GENERATOR & LOGIN ALGORITHM
@@ -1758,7 +1892,13 @@
         let isOralListening = false;
         let currentTargetSpeechSection = "reading"; // "reading" or "chat"
 
-        function startOralReadingChallenge() {
+        async function startOralReadingChallenge() {
+
+            const allowed = await requestMicrophonePermission();
+
+            if (!allowed) {
+                return;
+            }
             // Cancel active text-to-speech to release audio channels on iOS/Android
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
@@ -1952,7 +2092,13 @@
         // =========================================================================
         // 7. AI CONVERSATIONAL DIRECT CHAT
         // =========================================================================
-        function toggleChatVoiceInput() {
+        async function toggleChatVoiceInput() {
+
+            const allowed = await requestMicrophonePermission();
+
+            if (!allowed) {
+                return;
+            }
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
             }
@@ -3135,5 +3281,21 @@
             showToast("Đã sao chép mã nhúng thành công!", "fa-solid fa-copy");
         }
     </script>
+
+<script>
+function sendHeightToParent() {
+    const height = document.body.scrollHeight;
+
+    window.parent.postMessage({
+        type: 'resize',
+        height
+    }, '*');
+}
+
+window.addEventListener('load', sendHeightToParent);
+window.addEventListener('resize', sendHeightToParent);
+setInterval(sendHeightToParent, 2000);
+</script>
 </body>
+
 </html>
