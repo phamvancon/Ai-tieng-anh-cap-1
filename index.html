@@ -32,7 +32,7 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
+            background: linear-gradient(135deg, #f0f7ff 0%, #f8fafc 50%, #e0effe 100%);
             user-select: none;
         }
         /* Custom scrollbar for chat and lists */
@@ -63,7 +63,7 @@
         }
         /* Floating Bubbles Game Animation */
         @keyframes bubble-float {
-            0% { transform: translateY(100%) scale(0.9); opacity: 0; }
+            0 { transform: translateY(100%) scale(0.9); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
             100% { transform: translateY(-120%) scale(1.1); opacity: 0; }
@@ -73,10 +73,10 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-center items-center p-0 md:p-4">
 
-    <!-- APP WRAPPER (Căn giữa tối ưu hóa thiết bị di động, mượt mà trên Google Sites iFrame) -->
-    <div class="w-full max-w-md mx-auto bg-white min-h-screen flex flex-col shadow-2xl relative pb-20">
+    <!-- APP WRAPPER (Tự động co giãn thông minh: Mobile dọc gọn gàng, Desktop dạng Dashboard góc rộng) -->
+    <div class="w-full max-w-md md:max-w-5xl mx-auto bg-white min-h-screen md:min-h-[90vh] flex flex-col shadow-2xl relative pb-20 md:rounded-3xl md:border md:border-slate-100 overflow-hidden">
         
         <!-- MÀN HÌNH CHỜ & ĐĂNG NHẬP / ĐĂNG KÝ HỌC SINH (VIEW-AUTH) -->
         <div id="view-auth" class="flex-1 flex flex-col p-6 justify-between bg-gradient-to-b from-brand-50 to-white">
@@ -91,7 +91,7 @@
             </div>
 
             <!-- Custom auth tabs -->
-            <div class="my-6 bg-slate-100 rounded-2xl p-1.5 flex shadow-inner">
+            <div class="my-6 bg-slate-100 rounded-2xl p-1.5 flex shadow-inner max-w-sm mx-auto w-full">
                 <button onclick="switchAuthTab('login')" id="auth-tab-login" class="flex-1 py-2.5 text-center text-xs font-bold rounded-xl transition bg-white text-brand-600 shadow-sm">
                     <i class="fa-solid fa-key mr-1.5"></i> Đăng Nhập Con
                 </button>
@@ -101,7 +101,7 @@
             </div>
 
             <!-- Login Form -->
-            <div id="form-auth-login" class="space-y-4">
+            <div id="form-auth-login" class="space-y-4 max-w-sm mx-auto w-full">
                 <div class="bg-white border border-slate-200/60 rounded-2xl p-4 shadow-sm">
                     <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Nhập Mã Học Sinh ECO của Con</label>
                     <div class="relative">
@@ -117,7 +117,7 @@
             </div>
 
             <!-- Registration Form -->
-            <div id="form-auth-register" class="space-y-4 hidden">
+            <div id="form-auth-register" class="space-y-4 hidden max-w-sm mx-auto w-full">
                 <div class="bg-white border border-slate-200/60 rounded-2xl p-4 shadow-sm space-y-3.5">
                     <div>
                         <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Tên đầy đủ của con</label>
@@ -143,7 +143,7 @@
             </div>
 
             <!-- Footer links & Embed Guide Button -->
-            <div class="mt-8 text-center flex flex-col space-y-2.5 border-t border-slate-100 pt-4">
+            <div class="mt-8 text-center flex flex-col space-y-2.5 border-t border-slate-100 pt-4 max-w-sm mx-auto w-full">
                 <div class="flex justify-between items-center px-2">
                     <button onclick="openEmbedGuideModal()" class="text-xs text-brand-600 font-bold hover:text-brand-700 transition flex items-center space-x-1" title="Lấy mã nhúng an toàn cho Google Sites">
                         <i class="fa-solid fa-code text-[11px]"></i>
@@ -154,7 +154,7 @@
                         <span>Giáo viên / Admin</span>
                     </button>
                 </div>
-                <span class="text-[10px] text-slate-300">English Daily ECO v3.2</span>
+                <span class="text-[10px] text-slate-300">English Daily ECO v3.3</span>
             </div>
         </div>
 
@@ -162,16 +162,16 @@
         <div id="view-main-app" class="flex-1 flex flex-col hidden">
             
             <!-- Dynamic Application Header -->
-            <header class="bg-gradient-to-r from-brand-600 to-brand-700 text-white px-4 py-4 rounded-b-3xl shadow-lg sticky top-0 z-40 transition-all">
+            <header class="bg-gradient-to-r from-brand-600 to-brand-700 text-white px-4 py-4 md:px-6 rounded-b-3xl shadow-lg sticky top-0 z-40 transition-all">
                 <div class="flex justify-between items-center">
                     <!-- Student Identity -->
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-3">
                         <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center border-2 border-white/30 shadow-inner">
                             <i class="fa-solid fa-user-graduate text-xl text-white"></i>
                         </div>
                         <div>
                             <div class="flex items-center space-x-1.5">
-                                <h2 id="display-student-name" class="font-bold text-sm tracking-wide">Đang tải...</h2>
+                                <h2 id="display-student-name" class="font-bold text-sm md:text-base tracking-wide">Đang tải...</h2>
                                 <span id="sync-badge" class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" title="Chờ kết nối"></span>
                             </div>
                             <div class="flex items-center space-x-1">
@@ -185,7 +185,7 @@
                     </div>
 
                     <!-- Points/Streak Counter -->
-                    <div class="flex items-center space-x-1.5">
+                    <div class="flex items-center space-x-2">
                         <div class="bg-amber-500 text-white px-2.5 py-1.5 rounded-full flex items-center space-x-1 text-xs font-extrabold shadow-md">
                             <i class="fa-solid fa-gem text-yellow-200"></i>
                             <span id="display-points-count">0</span>
@@ -203,10 +203,10 @@
                 </div>
             </header>
 
-            <main class="flex-1 p-4 overflow-y-auto custom-scrollbar">
+            <main class="flex-1 p-4 md:p-6 overflow-y-auto custom-scrollbar">
                 
                 <!-- Tab Controls -->
-                <div class="grid grid-cols-3 bg-slate-100 rounded-xl p-1 mb-4 shadow-inner">
+                <div class="grid grid-cols-3 bg-slate-100 rounded-xl p-1 mb-6 shadow-inner max-w-md mx-auto">
                     <button onclick="switchTab('reading')" id="tab-btn-reading" class="py-2 text-center text-[11px] font-extrabold rounded-lg transition-all duration-300 bg-white text-brand-600 shadow-sm">
                         <i class="fa-solid fa-book-open mr-1"></i> Luyện Đọc
                     </button>
@@ -219,138 +219,143 @@
                     </button>
                 </div>
 
-                <!-- SECTION 1: READING PRACTICE -->
-                <section id="section-reading" class="space-y-4">
+                <!-- SECTION 1: READING PRACTICE (Co giãn Dashboard 2 cột thông minh) -->
+                <section id="section-reading" class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                     
-                    <!-- Curriculum Switcher -->
-                    <div class="bg-brand-50 rounded-2xl p-3 border border-brand-100 flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-ping"></span>
-                            <span class="text-xs font-black text-brand-900">CHƯƠNG TRÌNH ĐANG HỌC:</span>
+                    <!-- Cột Trái (7/12 cột): Thử Thách Đọc To & Minh họa bài học -->
+                    <div class="md:col-span-7 space-y-4">
+                        <!-- Daily Challenge Box -->
+                        <div class="bg-white border border-slate-100 rounded-2xl p-4 md:p-5 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-bl-xl tracking-wider">
+                                Bài học
+                            </div>
+                            <span class="text-xs font-bold text-brand-500 uppercase tracking-wider block mb-1">Thực Hành Đọc To</span>
+                            <h3 id="reading-title" class="text-xl md:text-2xl font-extrabold text-slate-900 leading-tight">Đang tải bài học...</h3>
+                            
+                            <!-- Dynamic Illustration Image -->
+                            <div class="w-full h-44 md:h-56 rounded-xl mt-3 overflow-hidden relative group bg-slate-100">
+                                <img id="reading-illustration" src="" alt="Minh họa bài đọc" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&auto=format&fit=crop&q=60'">
+                                <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">
+                                    <i class="fa-solid fa-image mr-1"></i>AI Illustration
+                                </div>
+                            </div>
+
+                            <!-- English Reading Text -->
+                            <div class="mt-4 bg-slate-50/80 rounded-xl p-4 border border-slate-100 relative">
+                                <p class="text-[10px] text-slate-400 absolute top-2 right-3 italic">Nhấp đúp chuột để tra nhanh từ mới</p>
+                                <p id="reading-content" class="text-base md:text-lg text-slate-700 leading-relaxed font-normal pt-3 select-text">
+                                    Đang tải văn bản tiếng Anh...
+                                </p>
+                            </div>
+
+                            <!-- Practice Action Bar -->
+                            <div class="mt-4 flex space-x-2">
+                                <button onclick="readAloudTaskText()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-semibold text-sm transition active:scale-95 flex items-center justify-center space-x-1">
+                                    <i class="fa-solid fa-volume-high text-brand-500"></i>
+                                    <span>Nghe máy mẫu</span>
+                                </button>
+                                <button onclick="startOralReadingChallenge()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-bold text-sm transition active:scale-95 shadow-md shadow-brand-500/20 flex items-center justify-center space-x-1">
+                                    <i class="fa-solid fa-microphone"></i>
+                                    <span>Bắt đầu đọc âm</span>
+                                </button>
+                            </div>
                         </div>
-                        <select id="curriculum-selector" onchange="switchCurriculum(this.value)" class="bg-white text-xs font-bold text-brand-700 px-2 py-1 rounded-lg border border-brand-200 focus:outline-none">
-                            <option value="daily">Luyện Đọc Hàng Ngày</option>
-                            <option value="smart_start">i-Learn Smart Start</option>
-                        </select>
                     </div>
 
-                    <!-- NEW: Daily Topic Suggestions Panel (Tùy chọn nhiều chủ đề tự động đổi theo ngày) -->
-                    <div id="daily-suggestions-box" class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-2">
-                        <div class="flex justify-between items-center">
-                            <h4 class="font-bold text-slate-900 text-sm flex items-center">
-                                <i class="fa-solid fa-calendar-day text-brand-600 mr-2"></i>Chủ đề gợi ý hôm nay
+                    <!-- Cột Phải (5/12 cột): Giáo trình, Gợi ý, Tủ Sách, Từ Vựng -->
+                    <div class="md:col-span-5 space-y-4">
+                        <!-- Curriculum Switcher -->
+                        <div class="bg-brand-50 rounded-2xl p-3 border border-brand-100 flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-ping"></span>
+                                <span class="text-xs font-black text-brand-900">GIÁO TRÌNH:</span>
+                            </div>
+                            <select id="curriculum-selector" onchange="switchCurriculum(this.value)" class="bg-white text-xs font-bold text-brand-700 px-2 py-1 rounded-lg border border-brand-200 focus:outline-none">
+                                <option value="daily">Luyện Đọc Hàng Ngày</option>
+                                <option value="smart_start">i-Learn Smart Start</option>
+                            </select>
+                        </div>
+
+                        <!-- Daily Topic Suggestions Panel -->
+                        <div id="daily-suggestions-box" class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm space-y-2">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-slate-900 text-sm flex items-center">
+                                    <i class="fa-solid fa-calendar-day text-brand-600 mr-2"></i>Chủ đề gợi ý hôm nay
+                                </h4>
+                                <span id="daily-date-label" class="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-md">--/--/----</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500">Mỗi ngày tự động đổi chủ đề mới. Hãy chọn 1 chủ đề dưới đây để luyện tập:</p>
+                            <div id="daily-suggestions-container" class="grid grid-cols-3 gap-2 pt-1">
+                                <!-- Dynamic Suggestion Chips injected here -->
+                            </div>
+                        </div>
+
+                        <!-- Smart Start Selector Box -->
+                        <div id="smart-start-selector-box" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 shadow-inner hidden space-y-2">
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Chọn Lớp Smart Start</label>
+                                    <select id="smart-class-selector" onchange="loadSmartStartThemes(this.value)" class="w-full text-xs font-bold text-slate-700 bg-white border border-slate-200 rounded-lg p-2 focus:outline-none">
+                                        <option value="ss_1">Smart Start Lớp 1</option>
+                                        <option value="ss_2">Smart Start Lớp 2</option>
+                                        <option value="ss_3">Smart Start Lớp 3</option>
+                                        <option value="ss_4" selected>Smart Start Lớp 4</option>
+                                        <option value="ss_5">Smart Start Lớp 5</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Chọn Chủ Đề Học</label>
+                                    <select id="smart-theme-selector" onchange="loadSmartThemeContent(this.value)" class="w-full text-xs font-bold text-slate-700 bg-white border border-slate-200 rounded-lg p-2 focus:outline-none">
+                                        <!-- Dynamic Themes populated here -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TỦ SÁCH GIÁO KHOA ĐIỆN TỬ SMART START -->
+                        <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                            <h4 class="font-bold text-slate-900 text-xs mb-2.5 flex items-center justify-between">
+                                <span class="flex items-center"><i class="fa-solid fa-cubes text-brand-600 mr-2"></i>Tủ Sách Điện Tử i-Learn Smart Start</span>
+                                <span class="text-[10px] text-brand-600 font-bold bg-brand-50 px-2 py-0.5 rounded-md">Lớp 1 - 5</span>
                             </h4>
-                            <span id="daily-date-label" class="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-md">--/--/----</span>
-                        </div>
-                        <p class="text-[11px] text-slate-500">Mỗi ngày tự động đổi chủ đề mới. Hãy chọn 1 chủ đề dưới đây để luyện tập:</p>
-                        <div id="daily-suggestions-container" class="grid grid-cols-3 gap-2 pt-1">
-                            <!-- Dynamic Suggestion Chips injected here -->
-                        </div>
-                    </div>
-
-                    <!-- Smart Start Selector Box (Hidden unless selected) -->
-                    <div id="smart-start-selector-box" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 shadow-inner hidden space-y-2">
-                        <div class="grid grid-cols-2 gap-2">
-                            <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Chọn Lớp Smart Start</label>
-                                <select id="smart-class-selector" onchange="loadSmartStartThemes(this.value)" class="w-full text-xs font-bold text-slate-700 bg-white border border-slate-200 rounded-lg p-2 focus:outline-none">
-                                    <option value="ss_1">Smart Start Lớp 1</option>
-                                    <option value="ss_2">Smart Start Lớp 2</option>
-                                    <option value="ss_3">Smart Start Lớp 3</option>
-                                    <option value="ss_4" selected>Smart Start Lớp 4</option>
-                                    <option value="ss_5">Smart Start Lớp 5</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-black text-slate-400 uppercase mb-1">Chọn Chủ Đề Học</label>
-                                <select id="smart-theme-selector" onchange="loadSmartThemeContent(this.value)" class="w-full text-xs font-bold text-slate-700 bg-white border border-slate-200 rounded-lg p-2 focus:outline-none">
-                                    <!-- Dynamic Themes populated here -->
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TỦ SÁCH GIÁO KHOA ĐIỆN TỬ SMART START -->
-                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
-                        <h4 class="font-bold text-slate-900 text-sm mb-2.5 flex items-center justify-between">
-                            <span class="flex items-center"><i class="fa-solid fa-cubes text-brand-600 mr-2"></i>Tủ Sách Điện Tử i-Learn Smart Start</span>
-                            <span class="text-[10px] text-brand-600 font-bold bg-brand-50 px-2 py-0.5 rounded-md">Lớp 1 - 5</span>
-                        </h4>
-                        <!-- Lưới Grid 5 lớp -->
-                        <div class="grid grid-cols-5 gap-1.5">
-                            <button onclick="openCustomTextbook('ss_1')" class="bg-gradient-to-b from-blue-50 to-blue-100 border border-blue-200 text-blue-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
-                                <i class="fa-solid fa-book-open text-base text-blue-600 mb-1"></i>
-                                <span class="text-[10px] font-extrabold">Lớp 1</span>
-                            </button>
-                            <button onclick="openCustomTextbook('ss_2')" class="bg-gradient-to-b from-emerald-50 to-emerald-100 border border-emerald-200 text-emerald-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
-                                <i class="fa-solid fa-book-open text-base text-emerald-600 mb-1"></i>
-                                <span class="text-[10px] font-extrabold">Lớp 2</span>
-                            </button>
-                            <button onclick="openCustomTextbook('ss_3')" class="bg-gradient-to-b from-purple-50 to-purple-100 border border-purple-200 text-purple-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
-                                <i class="fa-solid fa-book-open text-base text-purple-600 mb-1"></i>
-                                <span class="text-[10px] font-extrabold">Lớp 3</span>
-                            </button>
-                            <button onclick="openCustomTextbook('ss_4')" class="bg-gradient-to-b from-amber-50 to-amber-100 border border-amber-200 text-amber-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
-                                <i class="fa-solid fa-book-open text-base text-amber-600 mb-1"></i>
-                                <span class="text-[10px] font-extrabold">Lớp 4</span>
-                            </button>
-                            <button onclick="openCustomTextbook('ss_5')" class="bg-gradient-to-b from-rose-50 to-rose-100 border border-rose-200 text-rose-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
-                                <i class="fa-solid fa-book-open text-base text-rose-600 mb-1"></i>
-                                <span class="text-[10px] font-extrabold">Lớp 5</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Daily Challenge Box -->
-                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-brand-500 text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-bl-xl tracking-wider">
-                            Bài học
-                        </div>
-                        <span class="text-xs font-bold text-brand-500 uppercase tracking-wider block mb-1">Thực Hành Đọc To</span>
-                        <h3 id="reading-title" class="text-xl font-extrabold text-slate-900 leading-tight">Đang tải bài học...</h3>
-                        
-                        <!-- Dynamic Illustration Image -->
-                        <div class="w-full h-44 rounded-xl mt-3 overflow-hidden relative group bg-slate-100">
-                            <img id="reading-illustration" src="" alt="Minh họa bài đọc" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&auto=format&fit=crop&q=60'">
-                            <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">
-                                <i class="fa-solid fa-image mr-1"></i>AI Illustration
+                            <div class="grid grid-cols-5 gap-1.5">
+                                <button onclick="openCustomTextbook('ss_1')" class="bg-gradient-to-b from-blue-50 to-blue-100 border border-blue-200 text-blue-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
+                                    <i class="fa-solid fa-book-open text-base text-blue-600 mb-1"></i>
+                                    <span class="text-[10px] font-extrabold">Lớp 1</span>
+                                </button>
+                                <button onclick="openCustomTextbook('ss_2')" class="bg-gradient-to-b from-emerald-50 to-emerald-100 border border-emerald-200 text-emerald-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
+                                    <i class="fa-solid fa-book-open text-base text-emerald-600 mb-1"></i>
+                                    <span class="text-[10px] font-extrabold">Lớp 2</span>
+                                </button>
+                                <button onclick="openCustomTextbook('ss_3')" class="bg-gradient-to-b from-purple-50 to-purple-100 border border-purple-200 text-purple-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
+                                    <i class="fa-solid fa-book-open text-base text-purple-600 mb-1"></i>
+                                    <span class="text-[10px] font-extrabold">Lớp 3</span>
+                                </button>
+                                <button onclick="openCustomTextbook('ss_4')" class="bg-gradient-to-b from-amber-50 to-amber-100 border border-amber-200 text-amber-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
+                                    <i class="fa-solid fa-book-open text-base text-amber-600 mb-1"></i>
+                                    <span class="text-[10px] font-extrabold">Lớp 4</span>
+                                </button>
+                                <button onclick="openCustomTextbook('ss_5')" class="bg-gradient-to-b from-rose-50 to-rose-100 border border-rose-200 text-rose-800 p-2 rounded-xl text-center flex flex-col items-center justify-center hover:shadow-md transition active:scale-95">
+                                    <i class="fa-solid fa-book-open text-base text-rose-600 mb-1"></i>
+                                    <span class="text-[10px] font-extrabold">Lớp 5</span>
+                                </button>
                             </div>
                         </div>
 
-                        <!-- English Reading Text -->
-                        <div class="mt-4 bg-slate-50/80 rounded-xl p-4 border border-slate-100 relative">
-                            <p class="text-[10px] text-slate-400 absolute top-2 right-3 italic">Nhấp đúp chuột để tra nhanh từ mới</p>
-                            <p id="reading-content" class="text-base md:text-lg text-slate-700 leading-relaxed font-normal pt-3 select-text">
-                                Đang tải văn bản tiếng Anh...
-                            </p>
-                        </div>
-
-                        <!-- Practice Action Bar -->
-                        <div class="mt-4 flex space-x-2">
-                            <button onclick="readAloudTaskText()" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-semibold text-sm transition active:scale-95 flex items-center justify-center space-x-1">
-                                <i class="fa-solid fa-volume-high text-brand-500"></i>
-                                <span>Nghe máy đọc mẫu</span>
-                            </button>
-                            <button onclick="startOralReadingChallenge()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white py-3 rounded-xl font-bold text-sm transition active:scale-95 shadow-md shadow-brand-500/20 flex items-center justify-center space-x-1">
-                                <i class="fa-solid fa-microphone"></i>
-                                <span>Bắt đầu đọc âm</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Vocabulary List Box -->
-                    <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
-                        <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center">
-                            <i class="fa-solid fa-star text-amber-400 mr-2"></i>Từ Vựng Trọng Tâm (Luyện Phát Âm Từ)
-                        </h4>
-                        <div id="vocabulary-container" class="space-y-2.5 max-h-56 overflow-y-auto custom-scrollbar pr-1">
-                            <!-- Dynamic vocabulary loaded here -->
+                        <!-- Vocabulary List Box -->
+                        <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                            <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center">
+                                <i class="fa-solid fa-star text-amber-400 mr-2"></i>Từ Vựng Trọng Tâm (Luyện Phát Âm Từ)
+                            </h4>
+                            <div id="vocabulary-container" class="space-y-2.5 max-h-64 overflow-y-auto custom-scrollbar pr-1">
+                                <!-- Dynamic vocabulary loaded here -->
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- SECTION 2: AI DIALOGUE CHAT -->
-                <section id="section-chat" class="hidden flex flex-col h-[calc(100vh-210px)] max-h-[500px]">
+                <!-- SECTION 2: AI DIALOGUE CHAT (Responsive Frame trung tâm) -->
+                <section id="section-chat" class="hidden flex flex-col h-[calc(100vh-210px)] max-h-[500px] md:max-h-[600px] md:max-w-2xl md:mx-auto w-full">
                     <div id="chat-conversation-container" class="flex-1 overflow-y-auto custom-scrollbar p-1 space-y-3 mb-4 select-text">
                         <div class="flex items-start space-x-2.5">
                             <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0 font-bold text-xs shadow-inner">
@@ -383,199 +388,206 @@
                     </div>
                 </section>
 
-                <!-- SECTION 3: MINI GAME ZONE & LEADERBOARD -->
-                <section id="section-game" class="hidden space-y-4">
-                    <div class="flex bg-slate-200 rounded-xl p-1 shadow-inner">
-                        <button onclick="switchGameSubTab('games')" id="game-subtab-games" class="flex-1 py-1.5 text-center text-xs font-black rounded-lg transition bg-white text-emerald-600 shadow-sm">
-                            <i class="fa-solid fa-gamepad mr-1"></i> Trò Chơi
-                        </button>
-                        <button onclick="switchGameSubTab('leaderboard')" id="game-subtab-leaderboard" class="flex-1 py-1.5 text-center text-xs font-black rounded-lg transition text-slate-500">
-                            <i class="fa-solid fa-crown mr-1 text-yellow-500"></i> Bảng Vàng
-                        </button>
-                    </div>
-
-                    <div id="game-subview-games" class="space-y-4">
-                        <div class="bg-white border border-slate-100 rounded-2xl p-3 shadow-sm flex space-x-2">
-                            <button onclick="switchActiveGame('bubble')" id="game-select-bubble" class="flex-1 py-2 text-center text-[10px] font-black rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-700">
-                                <i class="fa-solid fa-circle-dot mr-1"></i> Bóng Bay Từ Vựng
+                <!-- SECTION 3: MINI GAME ZONE & LEADERBOARD (Co giãn 2 cột Dashboard) -->
+                <section id="section-game" class="hidden grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+                    
+                    <!-- Cột Trái (7/12 cột): Khu Vực Chơi Game -->
+                    <div class="md:col-span-7 space-y-4">
+                        <div class="flex bg-slate-200 rounded-xl p-1 shadow-inner">
+                            <button onclick="switchGameSubTab('games')" id="game-subtab-games" class="flex-1 py-1.5 text-center text-xs font-black rounded-lg transition bg-white text-emerald-600 shadow-sm">
+                                <i class="fa-solid fa-gamepad mr-1"></i> Trò Chơi
                             </button>
-                            <button onclick="switchActiveGame('scramble')" id="game-select-scramble" class="flex-1 py-2 text-center text-[10px] font-black rounded-xl border border-slate-200 text-slate-600">
-                                <i class="fa-solid fa-align-left mr-1"></i> Ghép Câu Thần Tốc
+                            <button onclick="switchGameSubTab('leaderboard')" id="game-subtab-leaderboard" class="flex-1 py-1.5 text-center text-xs font-black rounded-lg transition text-slate-500">
+                                <i class="fa-solid fa-crown mr-1 text-yellow-500"></i> Bảng Vàng
                             </button>
                         </div>
 
-                        <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-2xl shadow-md">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h3 id="active-game-title" class="font-extrabold text-base">Bóng Bay Từ Vựng</h3>
-                                    <p id="active-game-desc" class="text-[10px] text-emerald-100">Càng chơi lâu càng tăng điểm phản xạ từ vựng!</p>
-                                </div>
-                                <div class="bg-white/20 px-2.5 py-1 rounded-full text-xs font-black">
-                                    <i class="fa-solid fa-stopwatch mr-1 text-yellow-300"></i>
-                                    <span id="game-time-left">0</span> giây chơi
-                                </div>
-                            </div>
-
-                            <div class="mt-3 bg-black/25 rounded-xl p-2.5 flex items-center justify-between text-xs">
-                                <span class="font-medium text-emerald-100">Đổi 30 Điểm 💎 lấy 60 giây chơi</span>
-                                <button onclick="exchangePointsForTime()" class="bg-yellow-400 text-slate-900 font-extrabold px-3 py-1.5 rounded-lg active:scale-95 transition hover:bg-yellow-300 shadow-sm">
-                                    Đổi Ngay
+                        <div id="game-subview-games" class="space-y-4">
+                            <div class="bg-white border border-slate-100 rounded-2xl p-3 shadow-sm flex space-x-2">
+                                <button onclick="switchActiveGame('bubble')" id="game-select-bubble" class="flex-1 py-2 text-center text-[10px] font-black rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-700">
+                                    <i class="fa-solid fa-circle-dot mr-1"></i> Bóng Bay Từ Vựng
                                 </button>
-                            </div>
-                        </div>
-
-                        <!-- GAME 1: BUBBLE POP AREA -->
-                        <div id="game-play-area-bubble" class="w-full h-80 bg-slate-900 rounded-2xl relative overflow-hidden shadow-inner border-2 border-slate-800 flex flex-col justify-between">
-                            <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center p-4 text-center" id="game-start-cover">
-                                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/10">
-                                    <i class="fa-solid fa-play text-2xl ml-1"></i>
-                                </div>
-                                <h4 class="text-white font-black text-base">Bóng Bay Từ Vựng</h4>
-                                <p class="text-xs text-slate-400 mt-1 max-w-[250px]">Luyện trí nhớ nghĩa của từ vựng. Cần tối thiểu 10 giây chơi để bắt đầu.</p>
-                                <button onclick="startGameSession()" class="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-lg transition active:scale-95">
-                                    Bắt đầu chơi
+                                <button onclick="switchActiveGame('scramble')" id="game-select-scramble" class="flex-1 py-2 text-center text-[10px] font-black rounded-xl border border-slate-200 text-slate-600">
+                                    <i class="fa-solid fa-align-left mr-1"></i> Ghép Câu Thần Tốc
                                 </button>
                             </div>
 
-                            <div class="w-full bg-slate-950/50 p-2.5 flex justify-between items-center text-xs text-white border-b border-slate-800 z-0">
-                                <div>
-                                    <span class="text-slate-400 text-[10px] uppercase block">Tìm từ tiếng Anh của:</span>
-                                    <span id="game-target-meaning" class="font-black text-yellow-400 text-sm">--</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-slate-400 text-[10px] uppercase block">Điểm Game:</span>
-                                    <span id="game-score" class="font-black text-emerald-400 text-sm">0</span>
-                                </div>
-                            </div>
-
-                            <div class="flex-1 w-full relative" id="game-bubbles-container">
-                                <!-- Bubbles will float up from here -->
-                            </div>
-
-                            <div class="w-full bg-slate-950/20 text-[10px] text-slate-500 p-1 text-center">
-                                Đập đúng quả bóng chứa từ vựng tương ứng nghĩa tiếng Việt
-                            </div>
-                        </div>
-
-                        <!-- GAME 2: SENTENCE SCRAMBLE AREA -->
-                        <div id="game-play-area-scramble" class="w-full h-80 bg-slate-900 rounded-2xl relative overflow-hidden shadow-inner border-2 border-slate-800 flex flex-col justify-between hidden">
-                            <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center p-4 text-center" id="game-scramble-start-cover">
-                                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-3 shadow-lg">
-                                    <i class="fa-solid fa-align-left text-2xl"></i>
-                                </div>
-                                <h4 class="text-white font-black text-base">Ghép Câu Thần Tốc</h4>
-                                <p class="text-xs text-slate-400 mt-1 max-w-[250px]">Sắp xếp các từ bị xáo trộn thành câu tiếng Anh có nghĩa của bài đọc.</p>
-                                <button onclick="startScrambleGameSession()" class="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-lg transition active:scale-95">
-                                    Bắt đầu ghép câu
-                                </button>
-                            </div>
-
-                            <div class="w-full bg-slate-950/50 p-2.5 flex justify-between items-center text-xs text-white border-b border-slate-800">
-                                <div>
-                                    <span class="text-slate-400 text-[10px] uppercase block">Dịch Nghĩa:</span>
-                                    <span id="game-scramble-hint" class="font-black text-yellow-400 text-xs">--</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-slate-400 text-[10px] uppercase block">Điểm Game:</span>
-                                    <span id="game-scramble-score" class="font-black text-emerald-400 text-sm">0</span>
-                                </div>
-                            </div>
-
-                            <div class="flex-1 w-full p-3 flex flex-col justify-between space-y-2">
-                                <div class="bg-slate-950/40 border border-slate-800 rounded-xl p-3 flex-1 flex flex-wrap gap-1.5 content-start items-center">
-                                    <div id="game-scramble-answer-container" class="w-full flex flex-wrap gap-1.5 min-h-[40px]">
-                                        <p class="text-[10px] text-slate-600 italic">Nhấn vào các từ bên dưới để ghép câu...</p>
+                            <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-2xl shadow-md">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 id="active-game-title" class="font-extrabold text-base">Bóng Bay Từ Vựng</h3>
+                                        <p id="active-game-desc" class="text-[10px] text-emerald-100">Càng chơi lâu càng tăng điểm phản xạ từ vựng!</p>
+                                    </div>
+                                    <div class="bg-white/20 px-2.5 py-1 rounded-full text-xs font-black">
+                                        <i class="fa-solid fa-stopwatch mr-1 text-yellow-300"></i>
+                                        <span id="game-time-left">0</span> giây chơi
                                     </div>
                                 </div>
 
-                                <div id="game-scramble-chips-container" class="flex flex-wrap justify-center gap-2 py-2 border-t border-slate-800">
-                                    <!-- Scrambled word cards appear here -->
+                                <div class="mt-3 bg-black/25 rounded-xl p-2.5 flex items-center justify-between text-xs">
+                                    <span class="font-medium text-emerald-100">Đổi 30 Điểm 💎 lấy 60 giây chơi</span>
+                                    <button onclick="exchangePointsForTime()" class="bg-yellow-400 text-slate-900 font-extrabold px-3 py-1.5 rounded-lg active:scale-95 transition hover:bg-yellow-300 shadow-sm">
+                                        Đổi Ngay
+                                    </button>
                                 </div>
                             </div>
 
-                            <div class="w-full bg-slate-950/30 p-2 flex justify-between items-center text-[10px] border-t border-slate-800">
-                                <button onclick="resetCurrentScramble()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-bold transition">Xóa hết</button>
-                                <button onclick="submitScrambleSolution()" class="px-3.5 py-1 rounded bg-emerald-50 hover:bg-emerald-600 text-white font-bold transition">Kiểm tra câu</button>
+                            <!-- GAME 1: BUBBLE POP AREA -->
+                            <div id="game-play-area-bubble" class="w-full h-80 bg-slate-900 rounded-2xl relative overflow-hidden shadow-inner border-2 border-slate-800 flex flex-col justify-between">
+                                <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center p-4 text-center" id="game-start-cover">
+                                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/10">
+                                        <i class="fa-solid fa-play text-2xl ml-1"></i>
+                                    </div>
+                                    <h4 class="text-white font-black text-base">Bóng Bay Từ Vựng</h4>
+                                    <p class="text-xs text-slate-400 mt-1 max-w-[250px]">Luyện trí nhớ nghĩa của từ vựng. Cần tối thiểu 10 giây chơi để bắt đầu.</p>
+                                    <button onclick="startGameSession()" class="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-lg transition active:scale-95">
+                                        Bắt đầu chơi
+                                    </button>
+                                </div>
+
+                                <div class="w-full bg-slate-950/50 p-2.5 flex justify-between items-center text-xs text-white border-b border-slate-800 z-0">
+                                    <div>
+                                        <span class="text-slate-400 text-[10px] uppercase block">Tìm từ tiếng Anh của:</span>
+                                        <span id="game-target-meaning" class="font-black text-yellow-400 text-sm">--</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-slate-400 text-[10px] uppercase block">Điểm Game:</span>
+                                        <span id="game-score" class="font-black text-emerald-400 text-sm">0</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 w-full relative" id="game-bubbles-container">
+                                    <!-- Bubbles will float up from here -->
+                                </div>
+
+                                <div class="w-full bg-slate-950/20 text-[10px] text-slate-500 p-1 text-center font-bold">
+                                    Đập đúng quả bóng chứa từ vựng tương ứng nghĩa tiếng Việt
+                                </div>
+                            </div>
+
+                            <!-- GAME 2: SENTENCE SCRAMBLE AREA -->
+                            <div id="game-play-area-scramble" class="w-full h-80 bg-slate-900 rounded-2xl relative overflow-hidden shadow-inner border-2 border-slate-800 flex flex-col justify-between hidden">
+                                <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm z-10 flex flex-col items-center justify-center p-4 text-center" id="game-scramble-start-cover">
+                                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-3 shadow-lg">
+                                        <i class="fa-solid fa-align-left text-2xl"></i>
+                                    </div>
+                                    <h4 class="text-white font-black text-base">Ghép Câu Thần Tốc</h4>
+                                    <p class="text-xs text-slate-400 mt-1 max-w-[250px]">Sắp xếp các từ bị xáo trộn thành câu tiếng Anh có nghĩa của bài đọc.</p>
+                                    <button onclick="startScrambleGameSession()" class="mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs px-5 py-2.5 rounded-xl shadow-lg transition active:scale-95">
+                                        Bắt đầu ghép câu
+                                    </button>
+                                </div>
+
+                                <div class="w-full bg-slate-950/50 p-2.5 flex justify-between items-center text-xs text-white border-b border-slate-800">
+                                    <div>
+                                        <span class="text-slate-400 text-[10px] uppercase block">Dịch Nghĩa:</span>
+                                        <span id="game-scramble-hint" class="font-black text-yellow-400 text-xs">--</span>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="text-slate-400 text-[10px] uppercase block">Điểm Game:</span>
+                                        <span id="game-scramble-score" class="font-black text-emerald-400 text-sm">0</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 w-full p-3 flex flex-col justify-between space-y-2">
+                                    <div class="bg-slate-950/40 border border-slate-800 rounded-xl p-3 flex-1 flex flex-wrap gap-1.5 content-start items-center">
+                                        <div id="game-scramble-answer-container" class="w-full flex flex-wrap gap-1.5 min-h-[40px]">
+                                            <p class="text-[10px] text-slate-600 italic font-bold">Nhấn vào các từ bên dưới để ghép câu...</p>
+                                        </div>
+                                    </div>
+
+                                    <div id="game-scramble-chips-container" class="flex flex-wrap justify-center gap-2 py-2 border-t border-slate-800">
+                                        <!-- Scrambled word cards appear here -->
+                                    </div>
+                                </div>
+
+                                <div class="w-full bg-slate-950/30 p-2 flex justify-between items-center text-[10px] border-t border-slate-800">
+                                    <button onclick="resetCurrentScramble()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-bold transition">Xóa hết</button>
+                                    <button onclick="submitScrambleSolution()" class="px-3.5 py-1 rounded bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition">Kiểm tra câu</button>
+                                </div>
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Cột Phải (5/12 cột): Thành tích & Bảng vàng xếp hạng -->
+                    <div class="md:col-span-5 space-y-4">
                         <!-- Achievements & Rewards Box -->
                         <div class="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
                             <h4 class="font-bold text-slate-900 text-sm mb-3 flex items-center">
-                                <i class="fa-solid fa-gift text-rose-500 mr-2"></i>Kho Báu & Phần Thưởng Đạt Được
+                                <i class="fa-solid fa-gift text-rose-500 mr-2"></i>Phần Thưởng Đạt Được
                             </h4>
                             <div id="rewards-container" class="grid grid-cols-3 gap-2.5">
                                 <!-- Badges & Rewards will load here -->
                             </div>
                         </div>
-                    </div>
 
-                    <!-- SUB-TAB B: LEARNING LEADERBOARDS -->
-                    <div id="game-subview-leaderboard" class="space-y-4 hidden">
-                        <div class="bg-white border border-slate-100 rounded-2xl p-3 shadow-sm flex items-center justify-between">
-                            <span class="text-xs font-black text-brand-900 uppercase tracking-wide">Xếp hạng theo:</span>
-                            <div class="flex space-x-1.5">
-                                <button onclick="loadLeaderboardData('points')" id="leaderboard-filter-points" class="px-3 py-1 text-[10px] font-black rounded-lg bg-brand-500 text-white transition">
-                                    Điểm 💎
-                                </button>
-                                <button onclick="loadLeaderboardData('streak')" id="leaderboard-filter-streak" class="px-3 py-1 text-[10px] font-black rounded-lg border border-slate-200 text-slate-500 transition">
-                                    Chuỗi 🔥
-                                </button>
+                        <!-- Leaderboard / Bảng Vàng Module -->
+                        <div id="game-subview-leaderboard" class="space-y-4">
+                            <div class="bg-white border border-slate-100 rounded-2xl p-3 shadow-sm flex items-center justify-between">
+                                <span class="text-xs font-black text-brand-900 uppercase tracking-wide">Bảng Xếp Hạng:</span>
+                                <div class="flex space-x-1.5">
+                                    <button onclick="loadLeaderboardData('points')" id="leaderboard-filter-points" class="px-3 py-1 text-[10px] font-black rounded-lg bg-brand-500 text-white transition">
+                                        Điểm 💎
+                                    </button>
+                                    <button onclick="loadLeaderboardData('streak')" id="leaderboard-filter-streak" class="px-3 py-1 text-[10px] font-black rounded-lg border border-slate-200 text-slate-500 transition">
+                                        Chuỗi 🔥
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Top 3 Podium Displays -->
-                        <div class="grid grid-cols-3 gap-2 bg-gradient-to-b from-brand-50 to-white p-3 rounded-2xl border border-brand-100/50">
-                            <!-- Hạng 2 -->
-                            <div class="flex flex-col items-center justify-end text-center pb-2 pt-4">
-                                <div class="relative mb-1">
-                                    <div class="w-10 h-10 rounded-full bg-slate-200 border-2 border-slate-300 flex items-center justify-center font-bold text-slate-600 text-sm shadow">
-                                        🥈
+                            <!-- Top 3 Podium Displays -->
+                            <div class="grid grid-cols-3 gap-2 bg-gradient-to-b from-brand-50 to-white p-3 rounded-2xl border border-brand-100/50">
+                                <!-- Hạng 2 -->
+                                <div class="flex flex-col items-center justify-end text-center pb-2 pt-4">
+                                    <div class="relative mb-1">
+                                        <div class="w-10 h-10 rounded-full bg-slate-200 border-2 border-slate-300 flex items-center justify-center font-bold text-slate-600 text-sm shadow">
+                                            🥈
+                                        </div>
+                                        <span class="absolute -bottom-1 -right-1 bg-slate-400 text-white text-[8px] font-black px-1.5 rounded-full">2</span>
                                     </div>
-                                    <span class="absolute -bottom-1 -right-1 bg-slate-400 text-white text-[8px] font-black px-1.5 rounded-full">2</span>
+                                    <span id="podium-2-name" class="text-[9px] font-bold text-slate-700 block max-w-full truncate">Chưa có</span>
+                                    <span id="podium-2-score" class="text-[9px] font-semibold text-slate-500 block">--</span>
                                 </div>
-                                <span id="podium-2-name" class="text-[9px] font-bold text-slate-700 block max-w-full truncate">Chưa có</span>
-                                <span id="podium-2-score" class="text-[9px] font-semibold text-slate-500 block">--</span>
-                            </div>
-                            <!-- Hạng 1 -->
-                            <div class="flex flex-col items-center justify-end text-center pb-2">
-                                <div class="relative mb-1">
-                                    <div class="w-12 h-12 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-lg shadow-md animate-bounce">
-                                        🥇
+                                <!-- Hạng 1 -->
+                                <div class="flex flex-col items-center justify-end text-center pb-2">
+                                    <div class="relative mb-1">
+                                        <div class="w-12 h-12 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center text-lg shadow-md animate-bounce">
+                                            🥇
+                                        </div>
+                                        <span class="absolute -bottom-1 -right-1 bg-yellow-500 text-white text-[9px] font-black px-1.5 rounded-full">1</span>
                                     </div>
-                                    <span class="absolute -bottom-1 -right-1 bg-yellow-500 text-white text-[9px] font-black px-1.5 rounded-full">1</span>
+                                    <span id="podium-1-name" class="text-[10px] font-black text-slate-900 block max-w-full truncate">Chưa có</span>
+                                    <span id="podium-1-score" class="text-[10px] font-bold text-brand-600 block">--</span>
                                 </div>
-                                <span id="podium-1-name" class="text-[10px] font-black text-slate-900 block max-w-full truncate">Chưa có</span>
-                                <span id="podium-1-score" class="text-[10px] font-bold text-brand-600 block">--</span>
-                            </div>
-                            <!-- Hạng 3 -->
-                            <div class="flex flex-col items-center justify-end text-center pb-2 pt-4">
-                                <div class="relative mb-1">
-                                    <div class="w-10 h-10 rounded-full bg-amber-50 border-2 border-amber-600/30 flex items-center justify-center font-bold text-amber-700 text-sm shadow">
-                                        🥉
+                                <!-- Hạng 3 -->
+                                <div class="flex flex-col items-center justify-end text-center pb-2 pt-4">
+                                    <div class="relative mb-1">
+                                        <div class="w-10 h-10 rounded-full bg-amber-50 border-2 border-amber-600/30 flex items-center justify-center font-bold text-amber-700 text-sm shadow">
+                                            🥉
+                                        </div>
+                                        <span class="absolute -bottom-1 -right-1 bg-amber-600 text-white text-[8px] font-black px-1.5 rounded-full">3</span>
                                     </div>
-                                    <span class="absolute -bottom-1 -right-1 bg-amber-600 text-white text-[8px] font-black px-1.5 rounded-full">3</span>
-                                </div>
-                                <span id="podium-3-name" class="text-[9px] font-bold text-slate-700 block max-w-full truncate">Chưa có</span>
-                                <span id="podium-3-score" class="text-[9px] font-semibold text-slate-500 block">--</span>
-                            </div>
-                        </div>
-
-                        <!-- Leaderboard List Items -->
-                        <div id="leaderboard-list-container" class="space-y-2 max-h-72 overflow-y-auto custom-scrollbar pr-1">
-                            <!-- Rank rows will load here -->
-                        </div>
-
-                        <!-- User's current rank display -->
-                        <div id="leaderboard-my-rank" class="bg-brand-600 text-white rounded-2xl p-3 shadow-md flex justify-between items-center">
-                            <div class="flex items-center space-x-2.5">
-                                <span id="my-rank-pos" class="bg-white/20 px-2 py-0.5 rounded-md font-black text-xs">--</span>
-                                <div>
-                                    <p class="text-[10px] opacity-80 uppercase font-bold">Thứ hạng của bạn</p>
-                                    <p id="my-rank-name" class="text-xs font-black">---</p>
+                                    <span id="podium-3-name" class="text-[9px] font-bold text-slate-700 block max-w-full truncate">Chưa có</span>
+                                    <span id="podium-3-score" class="text-[9px] font-semibold text-slate-500 block">--</span>
                                 </div>
                             </div>
-                            <span id="my-rank-score" class="font-extrabold text-sm">--</span>
+
+                            <!-- Leaderboard List Items -->
+                            <div id="leaderboard-list-container" class="space-y-2 max-h-56 overflow-y-auto custom-scrollbar pr-1">
+                                <!-- Rank rows will load here -->
+                            </div>
+
+                            <!-- User's current rank display -->
+                            <div id="leaderboard-my-rank" class="bg-brand-600 text-white rounded-2xl p-3 shadow-md flex justify-between items-center">
+                                <div class="flex items-center space-x-2.5">
+                                    <span id="my-rank-pos" class="bg-white/20 px-2 py-0.5 rounded-md font-black text-xs">--</span>
+                                    <div>
+                                        <p class="text-[10px] opacity-80 uppercase font-bold">Thứ hạng của bạn</p>
+                                        <p id="my-rank-name" class="text-xs font-black">---</p>
+                                    </div>
+                                </div>
+                                <span id="my-rank-score" class="font-extrabold text-sm">--</span>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -584,7 +596,7 @@
 
             <!-- FLOATING BOTTOM DICTIONARY BAR -->
             <footer class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-200 px-4 py-3 shadow-2xl z-40">
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 max-w-md mx-auto">
                     <div class="relative flex-1">
                         <input type="text" id="dict-quick-input" placeholder="Tra nhanh Anh - Việt (nhấn enter)..." onkeydown="if(event.key === 'Enter') lookupWordDirectly()" class="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-xs focus:outline-none focus:border-brand-500 focus:bg-white transition-all">
                         <i class="fa-solid fa-magnifying-glass text-slate-400 absolute left-3 top-3.5 text-xs"></i>
@@ -822,6 +834,16 @@
 
     <!-- CORE LOGIC & CONTROLLER SCRIPT -->
     <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAzJnDO3_rHxye6ft2PeClK-y4XdWJH57w",
+            authDomain: "english-reading-mobi.firebaseapp.com",
+            projectId: "english-reading-mobi",
+            storageBucket: "english-reading-mobi.firebasestorage.app",
+            messagingSenderId: "651412302789",
+            appId: "1:651412302789:web:380973879830d38f9bb9ac",
+            measurementId: "G-2S7XL4SF9P"
+        };
+
         // Hệ thống cơ sở dữ liệu mở rộng với danh sách nhiều chủ đề trên một lớp (Học sinh tùy chọn bài học)
         const readingDatabase = {
             cap_1: [
@@ -1400,7 +1422,6 @@
             });
         }
 
-        // Hàm tính toán đề xuất 3 chủ đề dựa vào chu kỳ ngày trong tháng
         function getDailySuggestions(grade) {
             const pool = readingDatabase[grade] || readingDatabase.cap_1;
             const today = new Date();
@@ -1415,7 +1436,6 @@
                 }
             }
             
-            // Điền đầy đủ trong trường hợp danh sách đề xuất nhỏ hơn 3
             if (suggestions.length < 3) {
                 for (let k = 0; k < pool.length; k++) {
                     if (!suggestions.some(s => s.id === pool[k].id)) {
@@ -1448,7 +1468,6 @@
                 const chip = document.createElement("button");
                 chip.id = `chip-daily-${item.id}`;
                 
-                // Styling theo trạng thái được chọn hay chưa
                 if (isSelected) {
                     chip.className = "flex flex-col items-center justify-center p-2 rounded-xl text-center border-2 border-brand-500 bg-brand-50 text-brand-800 transition active:scale-95 shadow-sm";
                 } else {
@@ -1477,7 +1496,6 @@
                 renderReadingTaskUI();
             }
             
-            // Re-render highlight borders
             const chips = document.querySelectorAll("[id^='chip-daily-']");
             chips.forEach(el => {
                 if (el.id === `chip-daily-${id}`) {
@@ -1543,7 +1561,7 @@
         }
 
         function loadDailyTaskBasedOnGrade(grade) {
-            activeDailySuggestionId = null; // reset để tự động chọn gợi ý đầu tiên hôm nay
+            activeDailySuggestionId = null; 
             renderDailySuggestions(grade);
         }
 
@@ -1578,9 +1596,6 @@
             });
         }
 
-        // =========================================================================
-        // 4. DAILY STREAK & POINTS MISSION ALGORITHM
-        // =========================================================================
         function renderStudentInfo(state) {
             document.getElementById("display-student-name").innerText = state.name;
             document.getElementById("display-streak-count").innerText = state.streak;
@@ -1654,9 +1669,6 @@
             }
         }
 
-        // =========================================================================
-        // 5. ENGLISH DICTIONARY & INDIVIDUAL VOCAB SPEECH ANALYSIS ENGINE
-        // =========================================================================
         let dictionaryAudioUrl = "";
         let activeVocabTargetWord = "";
         let isVocabListening = false;
@@ -1759,14 +1771,14 @@
                 isVocabListening = true;
                 const btn = document.getElementById("btn-vocab-speech-mic");
                 btn.className = "w-full py-3.5 bg-yellow-500 text-slate-950 text-xs font-black rounded-xl transition flex items-center justify-center space-x-2";
-                document.getElementById("vocab-mic-btn-text").innerText = "🎙️ Đang nghe... Hãy đọc thật to!";
+                document.getElementById("vocab-mic-btn-text").innerText = "🎙 *ĐANG NGHE*... Con phát âm to từ vựng!";
             };
 
             rec.onend = () => {
                 isVocabListening = false;
                 const btn = document.getElementById("btn-vocab-speech-mic");
                 btn.className = "w-full py-3.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-black rounded-xl transition flex items-center justify-center space-x-2";
-                document.getElementById("vocab-mic-btn-text").innerText = "Bắt đầu luyện phát âm 🎙️";
+                document.getElementById("vocab-mic-btn-text").innerText = "Bắt đầu luyện phát âm 🎙";
             };
 
             rec.onresult = (e) => {
@@ -1861,9 +1873,6 @@
             sheet.classList.add("hidden");
         }
 
-        // =========================================================================
-        // 6. SPEECH RECOGNITION & SPEECH SYNTHESIS ENGINE
-        // =========================================================================
         let activeRecognizer = null;
         let isOralListening = false;
         let currentTargetSpeechSection = "reading";
@@ -2003,9 +2012,6 @@
             }
         }
 
-        // =========================================================================
-        // 7. AI CONVERSATIONAL DIRECT CHAT
-        // =========================================================================
         function toggleChatVoiceInput() {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
@@ -2140,9 +2146,6 @@
             }, 1300);
         }
 
-        // =========================================================================
-        // 8. MINI GAME - GAMIFICATION & LEADERBOARD SYSTEM
-        // =========================================================================
         let gameTimerInterval = null;
         let bubbleSpawnInterval = null;
         let gameScore = 0;
@@ -2356,9 +2359,7 @@
             if (cover) cover.classList.remove("hidden");
         }
 
-        // =========================================================================
-        // GAME 2: SENTENCE SCRAMBLE ENGINE
-        // =========================================================================
+        // --- GAME 2: SENTENCE SCRAMBLE ENGINE ---
         function startScrambleGameSession() {
             if ((activeStudentData.playTime || 0) < 10) {
                 showToast("Cần tối thiểu 10 giây chơi để bắt đầu!");
@@ -2479,9 +2480,6 @@
             `);
         }
 
-        // =========================================================================
-        // 9. LEADERBOARD & ADMIN PANEL LOADER
-        // =========================================================================
         async function loadLeaderboardData(sortByField = 'points') {
             const btnPoints = document.getElementById("leaderboard-filter-points");
             const btnStreak = document.getElementById("leaderboard-filter-streak");
@@ -2585,9 +2583,6 @@
             }
         }
 
-        // =========================================================================
-        // 10. ADMIN MODAL LOGIC
-        // =========================================================================
         let adminSubTab = "students";
 
         function openAdminModal() {
@@ -2889,9 +2884,6 @@
             });
         }
 
-        // =========================================================================
-        // 11. PREMIUM VIEW-INTERACTIONS & UTILITY
-        // =========================================================================
         function switchTab(tabId) {
             const btnReading = document.getElementById("tab-btn-reading");
             const btnChat = document.getElementById("tab-btn-chat");
@@ -2906,18 +2898,23 @@
             btnGame.className = "py-2 text-center text-[11px] font-extrabold rounded-lg transition-all duration-300 text-slate-500 hover:text-slate-800 flex items-center justify-center space-x-1";
 
             secReading.classList.add("hidden");
+            // Flex classes for dual-column grids should be adapted
+            secReading.classList.remove("grid");
             secChat.classList.add("hidden");
             secGame.classList.add("hidden");
+            secGame.classList.remove("grid");
 
             if (tabId === "reading") {
                 btnReading.className = "py-2 text-center text-[11px] font-extrabold rounded-lg transition-all duration-300 bg-white text-brand-600 shadow-sm";
                 secReading.classList.remove("hidden");
+                secReading.classList.add("grid");
             } else if (tabId === "chat") {
                 btnChat.className = "py-2 text-center text-[11px] font-extrabold rounded-lg transition-all duration-300 bg-white text-brand-600 shadow-sm";
                 secChat.classList.remove("hidden");
             } else {
                 btnGame.className = "py-2 text-center text-[11px] font-extrabold rounded-lg transition-all duration-300 bg-white text-brand-600 shadow-sm flex items-center justify-center space-x-1";
                 secGame.classList.remove("hidden");
+                secGame.classList.add("grid");
                 switchGameSubTab('games');
             }
         }
