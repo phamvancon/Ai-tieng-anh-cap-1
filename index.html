@@ -3821,6 +3821,873 @@ smartStartCurriculum.ss_5.push(
 { id:"ss5_u8", title:"Amazing Science", lesson:"Unit 8", image:"https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800", content:"Science helps people discover new things.", vocab:[{word:"Science",vi:"Khoa học"},{word:"Discover",vi:"Khám phá"},{word:"Experiment",vi:"Thí nghiệm"}]}
 );
 
+
+/* =================================================
+   PROFESSIONAL AI CHAT + FULL 8 UNITS CURRICULUM
+================================================= */
+
+function ensureFullUnits() {
+
+    Object.keys(smartStartCurriculum).forEach(key => {
+
+        const units = smartStartCurriculum[key];
+
+        for(let i = units.length + 1; i <= 8; i++) {
+
+            units.push({
+                id: `${key}_unit_${i}`,
+                title: `Smart Topic ${i}`,
+                lesson: `Unit ${i}`,
+                image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800',
+                content: 'Students practice English communication with AI teachers.',
+                vocab: [
+                    { word:'Practice', vi:'Luyện tập' },
+                    { word:'English', vi:'Tiếng Anh' },
+                    { word:'Teacher', vi:'Giáo viên' }
+                ]
+            });
+        }
+    });
+}
+
+ensureFullUnits();
+
+window.aiProfiles = [
+    {
+        id:'anna',
+        name:'Ms. Anna',
+        role:'Giáo viên Mỹ',
+        gender:'female',
+        intro:'Hello sweetheart! Let us practice English together today.'
+    },
+    {
+        id:'david',
+        name:'Mr. David',
+        role:'Thầy giáo Anh',
+        gender:'male',
+        intro:'Hi buddy! Ready for today speaking lesson?'
+    },
+    {
+        id:'lily',
+        name:'Lily',
+        role:'Bạn học AI',
+        gender:'female',
+        intro:'Hey friend! I am excited to chat with you.'
+    },
+    {
+        id:'tom',
+        name:'Tom',
+        role:'Bạn học AI',
+        gender:'male',
+        intro:'Yo! Let us improve English together!'
+    }
+];
+
+window.currentAIProfile = window.aiProfiles[0];
+
+function buildAISelector() {
+
+    const container =
+        document.getElementById(
+            'chat-conversation-container'
+        );
+
+    if(!container) return;
+
+    const selector =
+        document.createElement('div');
+
+    selector.className =
+        'bg-white sticky top-0 z-10 p-3 rounded-2xl border border-slate-200 mb-4 shadow-sm';
+
+    selector.innerHTML = `
+        <div class="font-black text-sm text-brand-700 mb-2">
+            🎙️ AI Voice Characters
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+            ${window.aiProfiles.map(p => `
+                <button
+                    onclick="switchAIProfile('${p.id}')"
+                    class="bg-slate-50 border border-slate-200 rounded-xl p-2 text-left hover:bg-brand-50">
+
+                    <div class="font-black text-xs">
+                        ${p.name}
+                    </div>
+
+                    <div class="text-[10px] text-slate-500">
+                        ${p.role}
+                    </div>
+                </button>
+            `).join('')}
+        </div>
+    `;
+
+    container.prepend(selector);
+}
+
+function switchAIProfile(id) {
+
+    const profile =
+        window.aiProfiles.find(
+            p => p.id === id
+        );
+
+    if(!profile) return;
+
+    window.currentAIProfile = profile;
+
+    addAIChatMessage(profile.intro);
+
+    speakAI(profile.intro);
+}
+
+function addAIChatMessage(message) {
+
+    const container =
+        document.getElementById(
+            'chat-conversation-container'
+        );
+
+    if(!container) return;
+
+    const profile =
+        window.currentAIProfile;
+
+    const bubble =
+        document.createElement('div');
+
+    bubble.className =
+        'flex items-start space-x-2.5';
+
+    bubble.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center font-bold text-xs">
+            AI
+        </div>
+
+        <div class="bg-slate-100 rounded-2xl rounded-tl-none px-3.5 py-2.5 text-sm text-slate-800 max-w-[85%] shadow-sm">
+
+            <p class="font-semibold text-brand-600 text-xs mb-0.5">
+                ${profile.name} • ${profile.role}
+            </p>
+
+            <p>${message}</p>
+        </div>
+    `;
+
+    container.appendChild(bubble);
+
+    container.scrollTop =
+        container.scrollHeight;
+}
+
+function speakAI(text) {
+
+    try {
+
+        const utter =
+            new SpeechSynthesisUtterance(text);
+
+        utter.rate = 0.95;
+        utter.pitch = 1.05;
+
+        const voices =
+            speechSynthesis.getVoices();
+
+        const female =
+            voices.find(v =>
+                v.lang.includes('en')
+            );
+
+        if(female) {
+            utter.voice = female;
+        }
+
+        speechSynthesis.speak(utter);
+
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+window.aiReplies = [
+    'Excellent pronunciation!',
+    'Wonderful speaking today!',
+    'You sound very natural.',
+    'Can you answer one more question?',
+    'Great job! Keep practicing every day.',
+    'I am proud of your English speaking.'
+];
+
+function randomAIReply() {
+
+    return window.aiReplies[
+        Math.floor(
+            Math.random() *
+            window.aiReplies.length
+        )
+    ];
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+
+        buildAISelector();
+
+        addAIChatMessage(
+            window.currentAIProfile.intro
+        );
+
+    }, 1000);
+
+    const oldSend =
+        window.handleSendTextChat;
+
+    if(typeof oldSend === 'function') {
+
+        window.handleSendTextChat = function() {
+
+            try {
+                oldSend();
+            } catch(e) {
+                console.log(e);
+            }
+
+            setTimeout(() => {
+
+                const reply =
+                    randomAIReply();
+
+                addAIChatMessage(reply);
+
+                speakAI(reply);
+
+            }, 1200);
+        };
+    }
+});
+
+
+/* =========================================
+   SIMPLE MALE & FEMALE VOICE SYSTEM
+========================================= */
+
+window.simpleVoiceMode = 'female';
+
+function createSimpleVoiceSelector() {
+
+    const oldPanel =
+        document.getElementById(
+            'simple-voice-panel'
+        );
+
+    if(oldPanel) oldPanel.remove();
+
+    const chatSection =
+        document.getElementById(
+            'section-chat'
+        );
+
+    if(!chatSection) return;
+
+    const panel =
+        document.createElement('div');
+
+    panel.id = 'simple-voice-panel';
+
+    panel.className =
+        'bg-white border border-slate-200 rounded-2xl p-3 mb-4 shadow-sm';
+
+    panel.innerHTML = `
+        <div class="flex justify-between items-center mb-3">
+
+            <h3 class="font-black text-sm text-brand-700">
+                🎙️ Chọn Giọng AI
+            </h3>
+
+            <span class="text-[10px] text-slate-400 font-bold">
+                Nam / Nữ
+            </span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+
+            <button
+                onclick="setSimpleVoice('female')"
+                class="bg-pink-50 hover:bg-pink-100 border border-pink-200 rounded-xl p-3 transition">
+
+                <div class="font-black text-sm text-pink-700">
+                    👩 Giọng Nữ
+                </div>
+
+                <div class="text-[10px] text-slate-500 mt-1">
+                    Nhẹ nhàng dễ nghe
+                </div>
+            </button>
+
+            <button
+                onclick="setSimpleVoice('male')"
+                class="bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl p-3 transition">
+
+                <div class="font-black text-sm text-blue-700">
+                    👨 Giọng Nam
+                </div>
+
+                <div class="text-[10px] text-slate-500 mt-1">
+                    Trầm rõ tự nhiên
+                </div>
+            </button>
+
+        </div>
+    `;
+
+    chatSection.prepend(panel);
+}
+
+function setSimpleVoice(type) {
+
+    window.simpleVoiceMode = type;
+
+    const msg =
+        type === 'female'
+        ? '👩 Đã chuyển sang giọng nữ'
+        : '👨 Đã chuyển sang giọng nam';
+
+    simpleVoiceToast(msg);
+
+    simpleAISpeak(
+        'Hello! Let us practice English together today.'
+    );
+}
+
+function simpleAISpeak(text) {
+
+    try {
+
+        speechSynthesis.cancel();
+
+        const utter =
+            new SpeechSynthesisUtterance(text);
+
+        const voices =
+            speechSynthesis.getVoices();
+
+        let selected = null;
+
+        if(window.simpleVoiceMode === 'female') {
+
+            utter.pitch = 1.15;
+            utter.rate = 0.96;
+
+            selected =
+                voices.find(v =>
+                    v.lang.toLowerCase().includes('en') &&
+                    (
+                        v.name.toLowerCase().includes('zira') ||
+                        v.name.toLowerCase().includes('samantha') ||
+                        v.name.toLowerCase().includes('female')
+                    )
+                );
+        }
+
+        if(window.simpleVoiceMode === 'male') {
+
+            utter.pitch = 0.82;
+            utter.rate = 0.9;
+
+            selected =
+                voices.find(v =>
+                    v.lang.toLowerCase().includes('en') &&
+                    (
+                        v.name.toLowerCase().includes('david') ||
+                        v.name.toLowerCase().includes('guy') ||
+                        v.name.toLowerCase().includes('male')
+                    )
+                );
+        }
+
+        if(selected) {
+            utter.voice = selected;
+        }
+
+        speechSynthesis.speak(utter);
+
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+function simpleVoiceToast(message) {
+
+    const toast =
+        document.createElement('div');
+
+    toast.className =
+        'fixed bottom-24 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-5 py-3 rounded-2xl shadow-2xl z-[99999] text-sm font-bold';
+
+    toast.innerHTML = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
+/* AUTO LOAD SIMPLE VOICE UI */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+
+        createSimpleVoiceSelector();
+
+    }, 1200);
+});
+
+
+/* ==================================================
+   MASSIVE MINI GAME + REWARD SHOP UPGRADE
+================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+
+        const leaderboardBtn =
+            document.getElementById(
+                'game-subtab-leaderboard'
+            );
+
+        if(leaderboardBtn) {
+            leaderboardBtn.click();
+        }
+
+    }, 1000);
+});
+
+window.extraGames = [
+    {
+        id:'memory',
+        title:'🧠 Memory Cards',
+        desc:'Lật thẻ ghi nhớ từ vựng'
+    },
+    {
+        id:'quiz',
+        title:'❓ Quiz Battle',
+        desc:'Trả lời nhanh câu hỏi'
+    },
+    {
+        id:'typing',
+        title:'⌨️ Speed Typing',
+        desc:'Gõ từ tiếng Anh'
+    },
+    {
+        id:'listen',
+        title:'🎧 Listening Game',
+        desc:'Nghe và chọn đáp án'
+    }
+];
+
+function createExtraGamesPanel() {
+
+    const gameArea =
+        document.getElementById(
+            'game-subview-games'
+        );
+
+    if(!gameArea) return;
+
+    const panel =
+        document.createElement('div');
+
+    panel.className =
+        'bg-white border border-slate-100 rounded-2xl p-4 shadow-sm';
+
+    panel.innerHTML = `
+        <div class="flex justify-between items-center mb-3">
+
+            <h3 class="font-black text-sm text-brand-700">
+                🎮 Mini Games Mới
+            </h3>
+
+            <span class="text-[10px] text-slate-400 font-bold">
+                Nâng cấp vui chơi
+            </span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+
+            ${window.extraGames.map(game => `
+                <button
+                    onclick="launchExtraGame('${game.id}')"
+                    class="bg-slate-50 hover:bg-brand-50 border border-slate-200 rounded-xl p-3 text-left">
+
+                    <div class="font-black text-xs text-slate-800">
+                        ${game.title}
+                    </div>
+
+                    <div class="text-[10px] text-slate-500 mt-1">
+                        ${game.desc}
+                    </div>
+                </button>
+            `).join('')}
+
+        </div>
+    `;
+
+    gameArea.prepend(panel);
+}
+
+function launchExtraGame(id) {
+
+    const rewards = {
+        memory: 5,
+        quiz: 8,
+        typing: 6,
+        listen: 7
+    };
+
+    const reward =
+        rewards[id] || 5;
+
+    if(typeof currentStudent !== 'undefined') {
+
+        currentStudent.points =
+            (currentStudent.points || 0) + reward;
+
+        currentStudent.gems =
+            (currentStudent.gems || 0) + 2;
+    }
+
+    miniGameToast(
+        `🎉 +${reward} điểm +2 ngọc`
+    );
+
+    if(typeof updateStudentStatsUI === 'function') {
+        updateStudentStatsUI();
+    }
+}
+
+window.rewardShopItems = [
+    {
+        id:'bear',
+        name:'🧸 Gấu Bông',
+        cost:50
+    },
+    {
+        id:'rabbit',
+        name:'🐰 Thỏ Bông',
+        cost:80
+    },
+    {
+        id:'cat',
+        name:'🐱 Mèo Bông',
+        cost:100
+    },
+    {
+        id:'gift',
+        name:'🎁 Hộp Quà',
+        cost:150
+    }
+];
+
+function createRewardShop() {
+
+    const leaderboard =
+        document.getElementById(
+            'game-subview-leaderboard'
+        );
+
+    if(!leaderboard) return;
+
+    const shop =
+        document.createElement('div');
+
+    shop.className =
+        'bg-white border border-slate-100 rounded-2xl p-4 shadow-sm mb-4';
+
+    shop.innerHTML = `
+        <div class="flex justify-between items-center mb-3">
+
+            <h3 class="font-black text-sm text-brand-700">
+                🎁 Đổi Ngọc Nhận Quà
+            </h3>
+
+            <span class="text-[10px] text-slate-400 font-bold">
+                Reward Shop
+            </span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+
+            ${window.rewardShopItems.map(item => `
+                <button
+                    onclick="redeemReward('${item.id}')"
+                    class="bg-slate-50 hover:bg-amber-50 border border-slate-200 rounded-xl p-3 text-left">
+
+                    <div class="font-black text-xs text-slate-800">
+                        ${item.name}
+                    </div>
+
+                    <div class="text-[10px] text-amber-600 mt-1 font-bold">
+                        💎 ${item.cost} ngọc
+                    </div>
+                </button>
+            `).join('')}
+
+        </div>
+    `;
+
+    leaderboard.prepend(shop);
+}
+
+function redeemReward(id) {
+
+    const item =
+        window.rewardShopItems.find(
+            i => i.id === id
+        );
+
+    if(!item) return;
+
+    if(typeof currentStudent === 'undefined') return;
+
+    currentStudent.gems =
+        currentStudent.gems || 0;
+
+    if(currentStudent.gems < item.cost) {
+
+        miniGameToast(
+            '❌ Không đủ ngọc'
+        );
+
+        return;
+    }
+
+    currentStudent.gems -= item.cost;
+
+    miniGameToast(
+        `🎁 Đổi thành công ${item.name}`
+    );
+
+    if(typeof updateStudentStatsUI === 'function') {
+        updateStudentStatsUI();
+    }
+}
+
+function miniGameToast(message) {
+
+    const toast =
+        document.createElement('div');
+
+    toast.className =
+        'fixed bottom-24 left-1/2 -translate-x-1/2 bg-brand-600 text-white px-5 py-3 rounded-2xl shadow-2xl z-[99999] text-sm font-bold';
+
+    toast.innerHTML = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+
+        createExtraGamesPanel();
+
+        createRewardShop();
+
+    }, 1500);
+});
+
+
+/* ==================================================
+   LIVE ENGLISH MINI GAMES FOR KIDS
+================================================== */
+
+window.liveEnglishGames = [
+    {
+        id:'word_match',
+        title:'🧩 Match Vocabulary',
+        question:'Apple',
+        answers:['Táo','Con mèo','Quyển sách'],
+        correct:'Táo'
+    },
+    {
+        id:'listen_choose',
+        title:'🎧 Listen & Choose',
+        question:'Dog',
+        answers:['Con chó','Con cá','Con chim'],
+        correct:'Con chó'
+    },
+    {
+        id:'fast_quiz',
+        title:'⚡ Fast Quiz',
+        question:'What color is the sky?',
+        answers:['Blue','Red','Yellow'],
+        correct:'Blue'
+    }
+];
+
+function createLiveEnglishGames() {
+
+    const gameArea =
+        document.getElementById(
+            'game-subview-games'
+        );
+
+    if(!gameArea) return;
+
+    const wrapper =
+        document.createElement('div');
+
+    wrapper.className =
+        'bg-white border border-slate-100 rounded-2xl p-4 shadow-sm mt-4';
+
+    wrapper.innerHTML = `
+        <div class="flex justify-between items-center mb-3">
+
+            <h3 class="font-black text-sm text-brand-700">
+                🎮 English Learning Games
+            </h3>
+
+            <span class="text-[10px] text-slate-400 font-bold">
+                Chơi trực tiếp
+            </span>
+        </div>
+
+        <div class="space-y-3">
+
+            ${window.liveEnglishGames.map(game => `
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3">
+
+                    <div class="font-black text-sm text-slate-800 mb-1">
+                        ${game.title}
+                    </div>
+
+                    <div class="text-xs text-brand-600 font-bold mb-3">
+                        ${game.question}
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-2">
+
+                        ${game.answers.map(ans => `
+                            <button
+                                onclick="checkEnglishGameAnswer('${game.correct}','${ans}')"
+                                class="bg-white hover:bg-brand-50 border border-slate-200 rounded-xl px-3 py-2 text-sm font-semibold text-left transition">
+
+                                ${ans}
+                            </button>
+                        `).join('')}
+
+                    </div>
+
+                </div>
+            `).join('')}
+
+        </div>
+    `;
+
+    gameArea.appendChild(wrapper);
+}
+
+function checkEnglishGameAnswer(correct, answer) {
+
+    if(typeof currentStudent !== 'undefined') {
+
+        currentStudent.points =
+            currentStudent.points || 0;
+
+        currentStudent.gems =
+            currentStudent.gems || 0;
+    }
+
+    if(answer === correct) {
+
+        if(typeof currentStudent !== 'undefined') {
+
+            currentStudent.points += 10;
+            currentStudent.gems += 3;
+        }
+
+        englishGameToast(
+            '🎉 Chính xác! +10 điểm +3 ngọc'
+        );
+
+        speakMiniGame(
+            'Excellent! Great job!'
+        );
+
+    } else {
+
+        englishGameToast(
+            '❌ Chưa đúng, hãy thử lại'
+        );
+
+        speakMiniGame(
+            'Try again please.'
+        );
+    }
+
+    if(typeof updateStudentStatsUI === 'function') {
+        updateStudentStatsUI();
+    }
+}
+
+function speakMiniGame(text) {
+
+    try {
+
+        speechSynthesis.cancel();
+
+        const utter =
+            new SpeechSynthesisUtterance(text);
+
+        utter.lang = 'en-US';
+
+        utter.pitch = 1.05;
+        utter.rate = 0.95;
+
+        speechSynthesis.speak(utter);
+
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+function englishGameToast(message) {
+
+    const toast =
+        document.createElement('div');
+
+    toast.className =
+        'fixed bottom-24 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-5 py-3 rounded-2xl shadow-2xl z-[99999] text-sm font-bold';
+
+    toast.innerHTML = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
+}
+
+/* AUTO LOAD LIVE GAMES */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    setTimeout(() => {
+
+        createLiveEnglishGames();
+
+    }, 1800);
+});
+
 </script>
 </body>
 </html>
